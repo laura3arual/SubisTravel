@@ -1,0 +1,44 @@
+{
+  "name": "subis-travel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --colors --progress --display-error-details --display-cached --port 8080",
+    "dev": "webpack-dev-server --progress --colors"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular2-jwt": "^0.1.6",
+    "autoprefixer-loader": "^3.2.0",
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "font-awesome": "^4.5.0",
+    "font-awesome-webpack": "0.0.4",
+    "html-loader": "^0.4.0",
+    "jquery": "^2.2.0",
+    "less": "^2.6.0",
+    "less-loader": "^2.2.2",
+    "node-sass": "^3.4.2",
+    "sass-loader": "^3.1.2",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.8.0",
+    "tsd": "^0.6.5",
+    "typescript": "^1.7.5",
+    "underscore": "^1.8.3",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.2",
+    "es6-promise": "^3.0.2",
+    "es6-shim": "^0.33.3",
+    "es7-reflect-metadata": "^1.5.5",
+    "materialize-css": "^0.97.5",
+    "ng2-material": "^0.2.1",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
+  }
+}

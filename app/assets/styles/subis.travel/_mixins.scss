@@ -1,0 +1,109 @@
+@mixin clearfix {
+  display: inline-block;
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  * html & { height: 1px }
+}
+
+//fonts 
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+
+//size mixins
+@mixin set-size($width: 0, $height: 0, $isclear: false) {
+	display: block;
+	width: $width;
+	height: $height;
+	@if($isclear) {
+		clear: both;
+	}
+}
+
+//position mixins
+@mixin centered-box {
+	margin: 0 auto;
+}
+@mixin set-position($type: relative, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: $type;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+//transitions mixins
+@mixin transition($transition...) {
+  -moz-transition:    $transition;
+  -o-transition:      $transition;
+  -webkit-transition: $transition;
+  transition:         $transition;
+}
+@mixin transition-property($property...) {
+  -moz-transition-property:    $property;
+  -o-transition-property:      $property;
+  -webkit-transition-property: $property;
+  transition-property:         $property;
+}
+@mixin transition-duration($duration...) {
+  -moz-transition-property:    $duration;
+  -o-transition-property:      $duration;
+  -webkit-transition-property: $duration;
+  transition-property:         $duration;
+}
+
+
+//border  mixins
+@mixin border-radius ($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+//SHAPES
+@mixin circle($size) {
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+}
+
+
+// OPACITY 
+
+@mixin opacity($percentage) {
+  $opacity-ie: $percentage * 100;
+
+  /* IE 8 */
+
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacity-ie + ")";
+
+  /* IE 5-7 */
+  filter: alpha(opacity=$opacity-ie); //IE8
+
+  /* Netscape */
+  -moz-opacity: $percentage;
+
+  /* Safari 1.x */
+  -khtml-opacity: $percentage;
+
+  /* Good browsers */
+  opacity: $percentage;
+} 
+
+// Shadow 
+@mixin box-shadow($shadow) {
+  -webkit-box-shadow: $shadow;
+  -moz-box-shadow: $shadow;
+  box-shadow: $shadow;
+}
