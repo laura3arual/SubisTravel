@@ -2,7 +2,7 @@
 <!--Work-->
 <div class="section scrollspy" id="work">
     <div class="container">
-        <h2 class="header text_b">Work </h2>
+        <h2 class="header text_b">Resultados de la búsqueda: </h2>
         <div class="row">
             <div class="col s12 m4 l4" *ngFor="#product of products">
                 <div class="card">
@@ -10,12 +10,12 @@
                         <img class="activator" src="./../../assets/images/bg/project1.jpg">
                     </div>
                     <div class="card-content">
-                        <span class="card-title activator grey-text text-darken-4">{{product.title}} <i class="mdi-navigation-more-vert right"></i></span>
+                        <span class="card-title activator grey-text text-darken-4">{{product.identificacion}} - {{product.nombre}} <i class="mdi-navigation-more-vert right"></i></span>
                         <p><a href="#">{{product.id}}</a></p>
                     </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">{{product.userId}}<i class="mdi-navigation-close right"></i></span>
-                        <p>{{product.body}}</p>
+                        <span class="card-title grey-text text-darken-4">{{product.direccion}}<i class="mdi-navigation-close right"></i></span>
+                        <p>{{product.email}}</p>
                     </div>
                 </div>
             </div>

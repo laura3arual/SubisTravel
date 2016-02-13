@@ -9,7 +9,7 @@ export class GalleryServices implements IGalleryServices{
     private apiUrl: string;
 
     constructor(private _dataServices: DataServices) {
-        this.apiUrl = "http://jsonplaceholder.typicode.com/posts";
+        this.apiUrl = "http://ec2-54-200-178-107.us-west-2.compute.amazonaws.com:8080/SubisTravelWeb/services/entidades";
     }
 
     public getGallery():Promise<Array<any>> {

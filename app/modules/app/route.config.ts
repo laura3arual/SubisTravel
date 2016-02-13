@@ -1,6 +1,6 @@
-import {HomeComponent} from "../../home/home.component";
-import {GalleryComponent} from "../../gallery/gallery.component";
-import {ProfileComponent} from "../../profile/profile.component";
+import {HomeComponent} from "../home/home.component";
+import {GalleryComponent} from "../gallery/gallery.component";
+import {ProfileComponent} from "../profile/profile.component";
 
 export const ROUTES = [
     { path: '/', component: HomeComponent, name: 'Home', useAsDefault: true},

@@ -1,8 +1,8 @@
 import {Component} from 'angular2/core';
 import {Router, Route, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
 import "../../assets/styles/subis.travel/main.scss";
-import {ROUTES} from "../core/routes/route.config";
-import {FooterComponent} from "../core/footer/footer.component";
+import {ROUTES} from "./route.config";
+import {FooterComponent} from "../footer/footer.component";
 import {tokenNotExpired} from "angular2-jwt";
 import {JwtHelper} from "angular2-jwt";
 import {HeaderComponent} from "../core/header/header.component";
@@ -12,7 +12,7 @@ declare var Auth0Lock;
 
 @Component({
     selector: 'app',
-    styles: [require("./app.scss").toString()],
+    styles: [require("./app.component.scss").toString()],
     providers: [],
     template: require("./app.component.html"),
     directives: [ROUTER_DIRECTIVES,
