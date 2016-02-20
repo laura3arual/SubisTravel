@@ -1,9 +1,9 @@
 import {Component, OnInit} from "angular2/core";
-import {Profile} from "../../profile/profile.models";
+import {Profile} from "../../../profile/profile.models";
 
 @Component({
     selector: "header-component",
-    styles: [require("./header.scss").toString()],
+    styles: [require("./header.component.scss").toString()],
     template: require("./header.component.html")
 })
 

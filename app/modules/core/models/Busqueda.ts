@@ -1,0 +1,3 @@
+class Busqueda {
+    cantidad: number;
+}

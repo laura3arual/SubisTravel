@@ -1,6 +1,6 @@
 import {Component} from "angular2/core";
 import {RouteConfig } from "angular2/router";
-import {HeaderComponent} from "../core/header/header.component";
+import {HeaderComponent} from "../core/components/header/header.component";
 import {GalleryComponent} from "../gallery/gallery.component";
 
 

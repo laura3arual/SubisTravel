@@ -5,7 +5,7 @@ import {ROUTES} from "./route.config";
 import {FooterComponent} from "../footer/footer.component";
 import {tokenNotExpired} from "angular2-jwt";
 import {JwtHelper} from "angular2-jwt";
-import {HeaderComponent} from "../core/header/header.component";
+import {HeaderComponent} from "../core/components/header/header.component";
 import {OnInit} from "angular2/core";
 
 declare var Auth0Lock;
