@@ -1,0 +1,65 @@
+.card-content {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background: rgba(0,0,0,.80);
+  width: 100%;
+  padding: 0 !important;
+  height: 89px;
+
+  .rating {
+    background: #fff;
+    display: inline-block;
+    border-radius: 2px;
+    font-size: 15px;
+    padding: 7px 15px 6px;
+    position: relative;
+    top: -15px;
+    left: 15px;
+    i {
+      color: lightgray;
+    }
+    .selected {
+      color: #337ab7;
+    }
+  }
+
+  h3 {
+    margin: 0px;
+    font: 500 16px/21px 'Roboto',sans-serif;
+    a {
+      color: white;
+    }
+  }
+
+  .card-detail {
+
+  }
+  span {
+    list-style: none;
+    display: inline-block;
+    margin-right: 14px;
+    color: #888888;
+    font-size: 14px;
+    line-height: 24px;
+    color: white;
+  }
+}
+
+.card {
+  width: 100%;
+  float: left;
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+  border-radius: 2px;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.card-image:hover {
+  -webkit-transition: all ease-in-out 0.3s;
+}

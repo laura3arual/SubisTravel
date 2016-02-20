@@ -1,3 +1,3 @@
 interface IGalleryServices {
-    getGallery(): Promise<Array<any>>;
+    getGallery(filter: any): Promise<Array<any>>;
 }

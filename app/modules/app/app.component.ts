@@ -7,6 +7,7 @@ import {tokenNotExpired} from "angular2-jwt";
 import {JwtHelper} from "angular2-jwt";
 import {HeaderComponent} from "../core/components/header/header.component";
 import {OnInit} from "angular2/core";
+import {PaginationComponent} from "../core/components/pagination/pagination.component";
 
 declare var Auth0Lock;
 
