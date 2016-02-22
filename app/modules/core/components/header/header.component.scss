@@ -2,6 +2,11 @@
   font-weight: bolder;
 }
 .avatar {
-  width: 50px;
+  width: 43px;
   margin: 6px;
+  margin-top: -2px !important;
+  img {
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
 }

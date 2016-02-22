@@ -1,0 +1,3 @@
+interface IProvidersServices {
+    getProviders(): void;
+}

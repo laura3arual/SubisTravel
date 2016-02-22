@@ -15,16 +15,26 @@ module.exports = {
         new webpack.ProvidePlugin({
             "_": "underscore",
             '$': "jquery",
-            'jQuery': "jquery"
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery",
+            "root.jQuery": "jquery"
         }),
         new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor-bundle.js')
     ],
 
     resolve: {
-        extensions: ['','.ts','.js']
+        extensions: ['','.ts','.js'],
+        alias: {
+            "_": "underscore"
+        }
     },
 
     devtool: 'source-map',
+
+    node: {
+        fs: "empty"
+    },
 
     module: {
         loaders: [

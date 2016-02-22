@@ -1,3 +1,16 @@
 .st-intro {
 margin-top: 100px;
+  h4 {
+    color: #AF1E13;
+    margin: -1.86rem 0 5.912rem 0;
+  }
+  form {
+    margin-bottom: 30px;
+    .prefix {
+      color: lighten(#AF1E13, 10%);
+    }
+    button {
+      background-color: #337ab7;
+    }
+  }
 }

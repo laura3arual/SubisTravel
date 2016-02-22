@@ -1,0 +1,10 @@
+.pagination {
+  float: right;
+  ul {
+    width: auto;
+  }
+}
+
+.pagination li.active {
+  background-color: #337ab7;
+}

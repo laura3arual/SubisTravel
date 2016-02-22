@@ -2,6 +2,7 @@
 <div class="navbar-fixed">
     <ul id="user-menu" class="dropdown-content">
         <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Profile</a></li>
+        <li><a href="#" *ngIf="loggedIn()" (click)="logout()" class="fa fa-sign-out"></a></li>
     </ul>
     <nav id="nav_f" class="default_color" role="navigation">
         <div class="container">
@@ -10,8 +11,8 @@
                 <ul class="right hide-on-med-and-down">
                     <li><a [routerLink]="['/Home']">Home</a></li>
                     <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Profile</a></li>
-                    <li><a href="#" *ngIf="!loggedIn()" (click)="login()">LogIn</a></li>
-                    <li><a href="#" *ngIf="loggedIn()" (click)="logout()">LogOut</a></li>
+                    <li><a href="#" *ngIf="!loggedIn()" (click)="login()" class="fa fa-sign-in"></a></li>
+
                     <li><a href="#!" class="dropdown-button" data-activates="user-menu">
                             <header-component *ngIf="loggedIn()"></header-component>
                     </a></li>

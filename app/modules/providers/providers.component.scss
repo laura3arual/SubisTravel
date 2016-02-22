@@ -1,0 +1,15 @@
+.check{
+  float: right;
+}
+
+.collection-item {
+  cursor: pointer;
+  &.active {
+      background-color: darken(#337ab7, 10%) !important;
+  }
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

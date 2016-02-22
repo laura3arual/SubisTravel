@@ -1,42 +1,10 @@
 <!--Work-->
-<div class="container">
+<div class="container gallery">
     <div class="row">
-        <div class="col s12 m3">
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <img src="" alt="" class="circle">
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                        Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                        Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle green">insert_chart</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                        Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-                <li class="collection-item avatar">
-                    <i class="material-icons circle red">play_arrow</i>
-                    <span class="title">Title</span>
-                    <p>First Line <br>
-                        Second Line
-                    </p>
-                    <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                </li>
-            </ul>
-        </div>
+        <providers></providers>
+        <p class="range-field col s12 m3">
+            <!--<input type="range" #sliderDomElement id="slider" min="100" max="100" />-->
+        </p>
         <div class="container col s12 m9">
             <div class="row">
                 <div class="col s12 m4" *ngFor="#item of items">
@@ -66,8 +34,8 @@
                 </div>
             </div>
         </div>
-
+        <pagination></pagination>
     </div>
 </div>
 
-<pagination></pagination>
+

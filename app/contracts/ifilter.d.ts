@@ -3,5 +3,5 @@ interface IFilter {
     minValue: number;
     maxValue: number;
     providers: Array<number>;
-    text: string;
+    name: string;
 }

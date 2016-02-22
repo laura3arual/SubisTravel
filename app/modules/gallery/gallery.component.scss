@@ -5,7 +5,7 @@
   background: rgba(0,0,0,.80);
   width: 100%;
   padding: 0 !important;
-  height: 89px;
+  height: 70px;
 
   .rating {
     background: #fff;
@@ -40,9 +40,9 @@
     display: inline-block;
     margin-right: 14px;
     color: #888888;
-    font-size: 14px;
-    line-height: 24px;
     color: white;
+    font-size: 12px;
+    line-height: 12px;
   }
 }
 
@@ -59,7 +59,16 @@
     height: auto;
   }
 }
-
-.card-image:hover {
+.card-image{
+  transition: all ease-in-out 0.3s;
   -webkit-transition: all ease-in-out 0.3s;
+}
+.card-image:hover {
+  transform: scale(1.1);
+  transition: all ease-in-out 0.3s;
+  -webkit-transition: all ease-in-out 0.3s;
+}
+
+.gallery {
+  width: 93%;
 }

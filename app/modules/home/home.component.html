@@ -1,14 +1,18 @@
 
 <!--Intro-->
 <div class="st-intro section no-pad-bot row" id="index-banner">
-	<div class="col s8 center offset-s2">
-		<h4 class="center">Cuéntanos el sitio que deseas conocer</h4>
-		<form class="col s12 m6 offset-m3">
-			<div class="input-field">
-				<input id="search" type="search" required>
-				<label for="search"><i class="fa fa-search"></i></label>
+	<div class="col s12 col m6 center offset-m3">
+		<h4 class="center">Cuéntanos el sitio que deseas visitar</h4>
+		<div class="input-field">
+			<form [ngFormModel]="searchForm" (submit)="filterGallery($event)" class="row">
+			<div class=" col s10">
+				<i class="fa fa-search prefix"></i>
+				<input ngControl="searchText" id="icon_prefix" type="text" class="validate">
+				<label for="icon_prefix"></label>
 			</div>
-		</form>
+				<button type="submit" class="waves-effect waves-light btn fa fa-search col s2"></button>
+			</form>
+		</div>
 	</div>
 </div>
 

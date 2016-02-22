@@ -1,0 +1,13 @@
+
+<div class="col s12 m3">
+    <ul class="collection">
+        <li class="collection-item row valign-wrapper" *ngFor="#provider of providerList">
+            <img src="http://www.iconshock.com/img_jpg/SUPERVISTA/accounting/jpg/256/provider_icon.jpg" alt="" class="circle responsive-img col s3">
+            <span class="title col s6 valign">{{provider.nombre}}</span>
+            <div class="check col s3 valign">
+                <input #selected type="checkbox" id="{{provider.id}}" (change)="updateProvider(provider.id)"/>
+                <label [attr.for]="provider.id"></label>
+            </div>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,25 @@
+nav, .navbar-fixed {
+  height: 50px;
+  line-height: 60px;
+
+  ul {
+    a {
+      line-height: 35px;
+      padding-top: 16px;
+      .avatar {
+        margin-top: -16px;
+      }
+    }
+  }
+}
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
