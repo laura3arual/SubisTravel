@@ -3,6 +3,10 @@ margin-top: 100px;
   h4 {
     color: #AF1E13;
     margin: -1.86rem 0 5.912rem 0;
+    font-weight: bolder;
+  }
+  .active {
+    color: #0D47A1 !important;
   }
   form {
     margin-bottom: 30px;
@@ -12,5 +16,17 @@ margin-top: 100px;
     button {
       background-color: #337ab7;
     }
+    input:focus {
+      border-bottom: 1px solid #0D47A1 !important;
+      box-shadow: 0 1px 0 0 #0D47A1!important;
+    }
   }
+}
+
+body {
+  background-image: url("./../../assets/images/bg/bg-home.jpg");
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
 }
