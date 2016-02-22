@@ -30,13 +30,14 @@ footer{
     list-style: none;
     display: inline-block;
     margin-left: 7px;
+    margin-top: 57px;
   }
 
   .footer-logo {
-    background-image: url("./../../assets/images/logos/st-logo.svg");
-    height: 101px;
+    background-image: url("./../../assets/images/logos/st-logo-bg.svg");
+    height: 75px;
     background-repeat: no-repeat;
-    background-size: 264px;
+    background-size: 273px;
   }
 
   .fa {

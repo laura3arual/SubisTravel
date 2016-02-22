@@ -1,16 +1,16 @@
 <!--Work-->
 <div class="container gallery">
     <div class="row">
+        <div class="filters col s12 m3">
         <providers></providers>
-        <p class="range-field col s12 m3">
-            <!--<input type="range" #sliderDomElement id="slider" min="100" max="100" />-->
-        </p>
+        <range></range>
+        </div>
         <div class="container col s12 m9">
-            <div class="row">
-                <div class="col s12 m4" *ngFor="#item of items">
+            <div class="row item-list">
+                <div class="col s12 m3" *ngFor="#item of items">
                     <div class="card">
                         <div class="card-image">
-                            <img src="./../../assets/images/bg/project1.jpg">
+                            <img src="{{item.imagen}}">
                         </div>
                         <div class="card-content">
                             <div class="rating">
