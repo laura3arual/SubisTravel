@@ -1,18 +1,20 @@
 import {Component} from "angular2/core";
 import {GalleryServices} from "../../../gallery/gallery.services";
+import {Input} from "angular2/core";
+import {OnInit} from "angular2/core";
 @Component({
     selector: "pagination",
     template: require("./pagination.componet.html"),
     styles: [require("./pagination.component.scss").toString()]
 })
 
-export class PaginationComponent{
+export class PaginationComponent implements OnInit{
     private pageSetSize: number;
     private pageSetSteps: number;
     private pageSetIndex: number;
-    private maxPages: number;
     private lastPage: number;
     private currentPage: number;
+    private maxPages: number;
     private currentPages: Array<number>;
 
     constructor(private _galleryServices: GalleryServices){
@@ -20,15 +22,24 @@ export class PaginationComponent{
         this.pageSetSize = 5;
         this.pageSetSteps = 3;
         this.pageSetIndex = 0;
-        this.maxPages = 10;
         this.lastPage = 1;
-        this.currentPages = this.generatePageNumbers();
+        this.maxPages = 10;
+
+    }
+
+    ngOnInit() {
+        this._galleryServices.updatePagination.subscribe((pages: number) => this.setMaxPages(pages));
     }
 
     private setCurrentPage(page: number) {
         this.currentPage = page;
         this._galleryServices.filter.page = page;
         this._galleryServices.getGallery();
+    }
+
+    private setMaxPages(pages: number) {
+        this.maxPages = pages;
+        this.currentPages = this.generatePageNumbers();
     }
 
     private generatePageNumbers() {

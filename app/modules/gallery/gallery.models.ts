@@ -14,6 +14,12 @@ enum Estado {
     PUBLICADO
 };
 
+class ItemListResponse {
+    lstElements: Array<Item>;
+    pages: number;
+    elements: number;
+}
+
 export {
-    Item, Estado
+    Item, Estado, ItemListResponse
 };

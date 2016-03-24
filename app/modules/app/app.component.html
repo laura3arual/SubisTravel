@@ -12,6 +12,7 @@
                     <li><a [routerLink]="['/Home']">Home</a></li>
                     <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Profile</a></li>
                     <li><a href="#" *ngIf="!loggedIn()" (click)="login()" class="fa fa-sign-in"></a></li>
+                    <li><a href="#" (click)="loggedIn()" class="fa fa-sign-in"></a></li>
 
                     <li><a href="#!" class="dropdown-button" data-activates="user-menu">
                             <header-component *ngIf="loggedIn()"></header-component>

@@ -1,0 +1,36 @@
+@import "./../../assets/styles/subis.travel/variables";
+section{
+  background-color: rgba(202, 216, 148, 0.48);
+  height: 81%;
+  width: 96% !important;
+  margin: auto;
+  color: $st-main-color;
+  .providers{
+    max-height: 80%;
+    overflow-y: scroll;
+    display: block;
+  }
+  h4 {
+    color: rgba(180, 66, 8, 0.69);
+    font-weight: bolder;
+    font-size: 1.5rem;
+  }
+  .st-intro {
+    .active {
+      color: $st-fourth-color !important;
+    }
+    form {
+      margin-bottom: 30px;
+      .prefix {
+        color: $st-main-color;
+      }
+      button {
+        background-color: $st-main-color;
+      }
+      input:focus {
+        border-bottom: 1px solid $st-fourth-color !important;
+        box-shadow: 0 1px 0 0 $st-fourth-color!important;
+      }
+    }
+  }
+}

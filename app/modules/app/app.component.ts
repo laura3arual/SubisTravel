@@ -1,20 +1,18 @@
-import {Component} from 'angular2/core';
-import {Router, Route, RouteConfig, ROUTER_DIRECTIVES} from 'angular2/router';
-import "../../assets/styles/subis.travel/main.scss";
+import {Component, OnInit} from "angular2/core";
+import {RouteConfig, ROUTER_DIRECTIVES} from "angular2/router";
 import {ROUTES} from "./route.config";
 import {FooterComponent} from "../footer/footer.component";
-import {tokenNotExpired} from "angular2-jwt";
-import {JwtHelper} from "angular2-jwt";
+import {tokenNotExpired, JwtHelper} from "angular2-jwt";
 import {HeaderComponent} from "../core/components/header/header.component";
-import {OnInit} from "angular2/core";
-import {PaginationComponent} from "../core/components/pagination/pagination.component";
+import {GalleryServices} from "../gallery/gallery.services";
+import "../../assets/styles/subis.travel/main.scss";
 
 declare var Auth0Lock;
 
 @Component({
     selector: 'app',
     styles: [require("./app.component.scss").toString()],
-    providers: [],
+    providers: [GalleryServices],
     template: require("./app.component.html"),
     directives: [ROUTER_DIRECTIVES,
         HeaderComponent,
@@ -28,17 +26,17 @@ declare var Auth0Lock;
 export class AppComponent implements OnInit{
 
     ngOnInit():any {
-        var $ = require('jquery');
-        require('materialize-css/bin/materialize.js');
-
         (<any>$(".button-collapse")).sideNav();
     }
 
-    lock = new Auth0Lock("B51ODht1f4rqVqT9V3kGohThilQylG4L", "subistravel.auth0.com");
-    jwtHelper = new JwtHelper();
+    private lock;
+    private jwtHelper;
 
-    constructor() {}
 
+    constructor() {
+        this.lock = new Auth0Lock("B51ODht1f4rqVqT9V3kGohThilQylG4L", "subistravel.auth0.com");
+        this.jwtHelper = new JwtHelper();
+    }
     login(){
         let self = this;
         this.lock.show((err: string, profile: string, id_token: string) => {
@@ -49,9 +47,9 @@ export class AppComponent implements OnInit{
             localStorage.setItem("id_token", id_token);
 
             console.log(
-              this.jwtHelper.decodeToken(id_token),
-              this.jwtHelper.getTokenExpirationDate(id_token),
-              this.jwtHelper.isTokenExpired(id_token)
+                this.jwtHelper.decodeToken(id_token),
+                this.jwtHelper.getTokenExpirationDate(id_token),
+                this.jwtHelper.isTokenExpired(id_token)
             );
         });
 

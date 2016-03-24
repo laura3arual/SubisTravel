@@ -1,16 +1,21 @@
-import 'angular2/bundles/angular2-polyfills';
+/// <reference path="./../../node_modules/angular2/typings/browser.d.ts" />
+/// <reference path="./../../node_modules/angular2/typings/es6-collections/es6-collections.d.ts" />
+/// <reference path="./../../node_modules/angular2/typings/es6-promise/es6-promise.d.ts" />
 
-//import 'materialize-css/dist/js/materialize.min.js';
+import 'angular2/bundles/angular2-polyfills';
+// Angular 2
 import 'angular2/platform/browser';
 import 'angular2/core';
 import 'angular2/http';
 import 'angular2/router';
 
-//import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
-
+// RxJS
 import 'rxjs';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 
-import "jquery";
-import "materialize-css/dist/js/materialize.js";
-import "wnumb/wNumb.js";
-//import "velocity/bin/velocity";
+
+import "materialize-css";
+import "wNumb";
+
+

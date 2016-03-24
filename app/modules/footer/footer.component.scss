@@ -1,5 +1,6 @@
+@import "./../../assets/styles/subis.travel/variables";
 footer{
-  background: lighten(#337ab7, 10%) !important;
+  background: $st-second-color !important;
   margin: 0px !important;
   padding: 0 !important;
 }
@@ -9,8 +10,8 @@ footer{
   width: 100%;
   float: left;
   clear: both;
-  background: darken(#337ab7, 10%);
-  color: white;
+  background:$st-third-color;
+  color: $st-blue-color;
   ul {
     margin: 0px;
     padding: 0px;
@@ -41,6 +42,6 @@ footer{
   }
 
   .fa {
-    color: white;
+    color: $st-blue-color;
   }
 }

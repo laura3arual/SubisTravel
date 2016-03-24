@@ -3,8 +3,8 @@ var path = require('path');
 
 module.exports = {
     entry: {
-        'app': './app/modules/boot.ts',
-        'vendor': './app/modules/vendor.ts'
+        'vendor': './app/modules/vendor.ts',
+        'app': './app/modules/main.ts'
     },
     output: {
         path:'wwwroot',
@@ -51,7 +51,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 exclude: /node_modules/,
-                loader: "style-loader!css-loader!autoprefixer-loader!sass-loader"
+                loader: "style-loader!css-loader!postcss-loader!sass-loader"
             },
             {
                 test: /\.(png|jpg|gif|woff|woff2|jpeg)(\?.*$|$)/,

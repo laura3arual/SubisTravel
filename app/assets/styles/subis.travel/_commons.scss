@@ -1,15 +1,46 @@
-.default_color{background-color: $st-second-color !important}
+.default_color{
+  background-color: $st-white-color !important;
+  &:hover{
+    background-color: $st-white-color !important;
+  }
+  ul {
+    a {
+      color: $st-third-color;
+      &:hover{
+        background-color: transparent !important;
+        text-decoration: underline                   ;
+      }
+    }
+  }
+}
 
 .default_color_text{color: $st-main-color !important}
 
-nav ul a {
-    color: $st-main-color;
+.brand-logo {
+  height: 90px;
+  width: 90px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("./../../images/logos/st-logo.png");
+  display: block;
+}
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+  border-bottom: 2px solid #2B3954;
 }
 
-.brand-logo {
-    display: inline-block;
-    height: 100px;
-    width: 100px;
-    background-image: url("./../../images/logos/st-logo.svg");
-    background-repeat: no-repeat;
+.all-height {
+  height: 100%;
+}
+
+[type="checkbox"]:checked + label:before {
+  top: -4px;
+  left: -3px;
+  width: 12px;
+  height: 22px;
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid $st-fourth-color;
+  border-bottom: 2px solid $st-fourth-color;
+  transform: rotate(40deg);
+  backface-visibility: hidden;
 }

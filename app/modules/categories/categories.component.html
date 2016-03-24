@@ -1,0 +1,12 @@
+
+<div class="col s12">
+    <ul class="collection">
+        <li class="collection-item row valign-wrapper" *ngFor="#category of categoryList">
+            <span class="title col s11 valign">{{category.nombre}}</span>
+            <div class="check col s1 valign">
+                <input #selected type="checkbox" id="{{'category' + category.id}}" (change)="updateCategory(category.id)"/>
+                <label [attr.for]="'category' + category.id"></label>
+            </div>
+        </li>
+    </ul>
+</div>

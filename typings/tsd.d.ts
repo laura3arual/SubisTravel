@@ -3,3 +3,4 @@
 /// <reference path="underscore/underscore.d.ts" />
 /// <reference path="nouislider/nouislider.d.ts" />
 /// <reference path="wnumb/wnumb.d.ts" />
+/// <reference path="requirejs/require.d.ts" />

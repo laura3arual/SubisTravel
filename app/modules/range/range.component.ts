@@ -1,9 +1,7 @@
 import {Component} from "angular2/core";
-import {ViewChild} from "angular2/core";
-import {Input} from "angular2/core";
-import {Output} from "angular2/core";
-import {EventEmitter} from "angular2/core";
-let noUiSlider: any = require("nouislider/distribute/nouislider.min.js");
+import "jquery";
+import "jquery-ui";
+import {GalleryServices} from "../gallery/gallery.services";
 
 
 @Component({
@@ -15,45 +13,57 @@ let noUiSlider: any = require("nouislider/distribute/nouislider.min.js");
 })
 
 export  class RangeComponent {
-    @ViewChild('sliderDomElement') sliderDomElement;
-    noUiSlider: any;
-    @Input() start: number[];
-    @Input() range: any;
-    @Input() pips: any;
-    @Output() end: EventEmitter<any> = new EventEmitter();
+    slideMaxValue: number;
+    slideMinValue: number;
 
-    ngAfterViewInit() {
-        let sliderMin = document.getElementById('sliderMin');
-        noUiSlider.create(sliderMin, {
-            start: [10000, 1000000],
-            connect: true,
-            step: 1,
-            range: {
-                'min': 10000,
-                'max': 1000000
-            },
-            format: wNumb({
-                decimals: 0
-            })
-        });
-
-        let sliderMax = document.getElementById('sliderMax');
-        noUiSlider.create(sliderMax, {
-            start: [10000, 1000000],
-            connect: true,
-            step: 1,
-            range: {
-                'min': 10000,
-                'max': 1000000
-            },
-            format: wNumb({
-                decimals: 0
-            })
-        });
-
+    constructor(private _galleryServices: GalleryServices) {
+        this.slideMinValue = 10000;
+        this.slideMaxValue= 1000000;
     }
 
-    private logSlider(inNoUiSlider: any) {
-        console.log(inNoUiSlider);
+    ngOnInit() {
+        (<any>$(".slider-max")).slider({
+            range: false,
+            orientation: "horizontal",
+            min: 10000,
+            max: 1000000,
+            value: 10000,
+            step: 10000,
+            slide: (event, ui) => {
+                this.slideMaxValue= ui.value;
+                this.updateRange();
+            }
+        });
+        (<any>$(".slider-min")).slider({
+            range: false,
+            orientation: "horizontal",
+            min: 10000,
+            max: 1000000,
+            value: 10000,
+            step: 10000,
+            slide: (event, ui) => {
+                this.slideMinValue = ui.value;
+                this.updateRange();
+            }
+        });
     }
+
+    private updateRange() {
+        if(this.slideMinValue) {
+            this._galleryServices.filter.minValue = this.slideMinValue;
+        } else {
+            this._galleryServices.filter.minValue = undefined;
+        }
+        if(this.slideMaxValue) {
+            this._galleryServices.filter.maxValue = this.slideMaxValue;
+        } else {
+            this._galleryServices.filter.maxValue = undefined;
+        }
+        this.filterGallery();
+    }
+
+    private filterGallery(){
+        this._galleryServices.getGallery();
+    }
+
 }

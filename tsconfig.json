@@ -16,5 +16,10 @@
   ],
   "exclude": [
     "node_modules"
-  ]
-}
+  ],
+  "filesGlob": [
+    "./src/**/*.ts",
+    "./test/**/*.ts",
+    "!./node_modules/**/*.ts"
+    ]
+  }
