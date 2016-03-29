@@ -1,0 +1,33 @@
+<div class="container transactions">
+
+    <h1 class="center">
+        <span *ngIf="!userName">Mis compras</span>
+        <span *ngIf="userName">Compras {{userName}}</span>
+    </h1>
+    <div class="container all-transactions">
+        <table class="striped">
+            <thead>
+            <tr>
+                <th data-field="date">Fecha</th>
+                <th data-field="id">Id</th>
+                <th data-field="item">Item</th>
+                <th data-field="quantity">Cantidad</th>
+                <th data-field="value">Valor</th>
+                <th data-field="state">Estado</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="#transactionItem of transactions">
+                <td class="left-align">{{transactionItem.fecha}}</td>
+                <td class="left-align">{{transactionItem.id}}</td>
+                <td *ngIf="transactionItem.item" class="left-align"><a [routerLink]="['/Item', {id: transactionItem.item.id}]">{{transactionItem.item.id}} - {{transactionItem.item.nombre}}</a></td>
+                <td class="center-align">{{transactionItem.cantidad}}</td>
+                <td class="right-align">${{transactionItem.valor}}</td>
+                <td class="left-align">{{transactionItem.estado}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

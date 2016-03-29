@@ -44,3 +44,24 @@ input:not([type]), input[type=text], input[type=password], input[type=email], in
   transform: rotate(40deg);
   backface-visibility: hidden;
 }
+
+
+.btn {
+  background-color: $st-second-color !important;
+}
+
+h1 {
+  font-size: 1.4705882352941178em;
+  color: #2B3954;
+  font-weight: bolder;
+}
+
+.unselectable {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: default;
+}

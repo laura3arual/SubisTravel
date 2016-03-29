@@ -1,18 +1,19 @@
 <section class="filters container row">
     <div class="st-intro section col s12 col m4">
-        <h4 class="center">Cuéntanos el sitio que deseas visitar</h4>
-        <div class="input-field">
-            <form [ngFormModel]="searchForm" (submit)="filterGallery($event)" class="row">
-                <div class=" col s10">
-                    <i class="fa fa-search prefix"></i>
-                    <input ngControl="searchText" id="icon_prefix" type="text" class="validate" (keyup)="filterGallery($event)" (blur)="filterGallery($event)">
-                    <label for="icon_prefix"></label>
-                </div>
-            </form>
+        <div class="container">
+            <h4 class="center">Cuéntanos el sitio que deseas visitar</h4>
+            <div class="input-field">
+                <form [ngFormModel]="searchForm" (submit)="filterGallery($event)" class="row">
+                    <div class=" col s10">
+                        <i class="fa fa-search prefix"></i>
+                        <input ngControl="searchText" id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix"></label>
+                    </div>
+                </form>
+            </div>
+            <h4 class="center">Rangos de precio:</h4>
+            <range class="range"></range>
         </div>
-
-        <h4 class="center">Rangos de precio:</h4>
-        <range class="range"></range>
     </div>
     <div class="col s12 m4 all-height">
         <h4 class="center">Provedores:</h4>
@@ -20,6 +21,8 @@
     </div>
     <div class="col s12 m4 all-height">
         <h4 class="center">Categorías:</h4>
-        <categories class="castegories"></categories>
+        <categories class="categories"></categories>
+        <h4 class="center">Tipos:</h4>
+        <item-types class="item-types"></item-types>
     </div>
 </section>

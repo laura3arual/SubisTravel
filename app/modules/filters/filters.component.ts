@@ -1,16 +1,16 @@
 import {Component} from "angular2/core";
-import {ProvidersComponent} from "../providers/providers.component";
-import {RangeComponent} from "../range/range.component";
-import {ControlGroup} from "angular2/common";
+import {ControlGroup, FormBuilder} from "angular2/common";
 import {GalleryServices} from "../gallery/gallery.services";
-import {FormBuilder} from "angular2/common";
-import {CategoriesComponent} from "../categories/categories.component";
+import {ProvidersComponent} from "./providers/providers.component";
+import {RangeComponent} from "./range/range.component";
+import {CategoriesComponent} from "./categories/categories.component";
+import {ItemTypeComponent} from "./types/types.component";
 
 @Component({
     selector: "filters",
     template: require("./filters.component.html"),
     styles: [require("./filters.component.scss").toString()],
-    directives: [ProvidersComponent, RangeComponent, CategoriesComponent]
+    directives: [ProvidersComponent, RangeComponent, CategoriesComponent, ItemTypeComponent]
 })
 
 export class FiltersComponent{
@@ -21,13 +21,19 @@ export class FiltersComponent{
         this.searchForm = fb.group({
             searchText: ""
         });
+        this.searchForm.valueChanges
+            .debounceTime(400)
+            .distinctUntilChanged()
+            .subscribe(() => {this.filterGallery()});
     }
 
     private filterGallery(){
         if(this.searchForm.value.searchText){
             this._galleryServices.filter.name = this.searchForm.value.searchText;
-            this._galleryServices.getGallery();
+        } else {
+            this._galleryServices.filter.name = undefined;
         }
+        this._galleryServices.getGallery();
     }
 
 }

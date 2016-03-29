@@ -1,0 +1,25 @@
+<div class="shopping-cart container ">
+        <h1 class="center">CARRO DE COMPRAS</h1>
+        <ul class="collection">
+            <li class="collection-item" *ngFor="#item of currentCart.items">
+                <div class="row valign-wrapper" *ngIf="item.detail && item.detail.nombre">
+                    <img src="{{item.detail.imagen}}" [routerLink]="['/Item', {id: item.idItem}]" alt="" class="col s12 m2 valign">
+                    <p class="title col s12 m7 valign unselectable"><strong>{{item.detail.nombre}}</strong>
+                        <br>
+                        <span>{{item.detail.descripcion}}</span>
+                        <span>{{item.detail.estado}}</span>
+                    </p>
+                    <p class="col s3 m1 offset-s3 valign">
+                        X{{item.cantidad}}
+                    </p>
+                    <p class="col s3 m1 valign">
+                        ${{item.valor}}
+                    </p>
+                    <a (click)="removeItem(item.id)" class="delete-btn col s3 m1 center-align"><i class="fa fa-trash"></i></a>
+                </div>
+            </li>
+        </ul>
+    <button class="btn waves-effect waves-light right" type="submit" name="action" (click)="buy()">Comprar!
+        <i class="fa fa-shopping-bag"></i>
+    </button>
+</div>

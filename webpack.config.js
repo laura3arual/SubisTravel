@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var path = require('path');
+var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 module.exports = {
     entry: {
@@ -69,7 +70,6 @@ module.exports = {
         ],
         noParse: [ path.join(__dirname, 'node_modules', 'angular2', 'bundles') ]
     },
-
     devServer: {
         contentBase: 'wwwroot'
     }

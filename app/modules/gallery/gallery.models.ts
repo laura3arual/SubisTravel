@@ -20,6 +20,12 @@ class ItemListResponse {
     elements: number;
 }
 
+class ItemType {
+    id: number;
+    name: string;
+}
+
+
 export {
-    Item, Estado, ItemListResponse
+    Item, Estado, ItemType, ItemListResponse
 };

@@ -1,14 +1,19 @@
 @import "./../../assets/styles/subis.travel/variables";
-section{
+.filters {
   background-color: rgba(202, 216, 148, 0.48);
   height: 81%;
   width: 96% !important;
   margin: auto;
   color: $st-main-color;
-  .providers{
+  .providers {
     max-height: 80%;
     overflow-y: scroll;
     display: block;
+  }
+  .categories, .item-types {
+    height: 33%;
+    display: block;
+    overflow: auto;
   }
   h4 {
     color: rgba(180, 66, 8, 0.69);
@@ -29,7 +34,7 @@ section{
       }
       input:focus {
         border-bottom: 1px solid $st-fourth-color !important;
-        box-shadow: 0 1px 0 0 $st-fourth-color!important;
+        box-shadow: 0 1px 0 0 $st-fourth-color !important;
       }
     }
   }

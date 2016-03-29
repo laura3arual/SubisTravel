@@ -1,0 +1,18 @@
+@import "./../../../assets/styles/subis.travel/variables";
+.thumb {
+  font-weight: bolder;
+  color: $st-main-color;
+  span {
+    display: block;
+    position: absolute;
+    top: 1px;
+    right: 14px;
+  }
+}
+.range-field {
+  label {
+    font-size: 1.2rem;
+    color: $st-main-color;
+    font-weight: bolder;
+  }
+}

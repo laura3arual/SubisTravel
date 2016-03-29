@@ -1,16 +1,142 @@
-<div class="container">
-    <h1>{{item.nombre}}</h1>
-    <div class="rating">
-        <a href="#">
-            <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 0}"></i>
-            <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 1}"></i>
-            <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 2}"></i>
-            <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 3}"></i>
-            <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 4}"></i>
-        </a>
+<div class="container item-detail">
+    <div class="valign-wrapper">
+        <h1 class="valign">{{item.nombre}}</h1>
+        <div class="item-detail-rating valign">
+            <div>
+                <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 0}"></i>
+                <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 1}"></i>
+                <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 2}"></i>
+                <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 3}"></i>
+                <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 4}"></i>
+            </div>
+        </div>
     </div>
-    <p>{{item.descripcion}}</p>
     <img src="{{item.imagen}}" alt="">
-    <p>{{item.estado}}</p>
-    <p>valor: {{item.valor}}</p>
+    <div class="section row">
+        <div class="input-field col s12 m2 offset-m9">
+            <input id="quantity" type="text" class="validate" [(ngModel)]="quantity">
+            <label class="active" for="quantity">Cantidad</label>
+        </div>
+        <a class="btn-floating btn-large waves-effect right" (click)="addItemToShoppingCart(item.id, quantity); quantity = undefined"><i class="fa fa-cart-plus tooltipped" data-tooltip="Añadir a mi carro de compras!"></i></a>
+    </div>
+    <ul class="collapsible item-content" data-collapsible="expandable">
+        <li>
+            <div class="collapsible-header"><i class="fa fa-info"></i>Detalles</div>
+            <div class="collapsible-body details">
+                <p class="unselectable"><span>Descripción: </span>{{item.descripcion}}</p>
+                <p class="unselectable"><span>Valor: </span>${{item.valor}}</p>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header"><i class="fa fa-smile-o"></i>Calificationes y Comentarios</div>
+            <div class="collapsible-body  ratings">
+                <div class="section rate row">
+                    <div class="col s8 offset-s2">
+                        <div class="card-panel grey lighten-5 z-depth-1 row" [hidden]="!loggedIn() || !canComment">
+                            <div class="input-field col s8">
+                                <textarea id="comment" type="text" class="materialize-textarea" [(ngModel)]="currentRating.comentario"></textarea>
+                                <label class="active" for="comment">Comentario</label>
+                            </div>
+                            <div class="col s4">
+                                <div class="item-current-rating" (mouseleave)="ratingTemp = 0">
+                                    <div>
+                                        <i class="fa fa-star" [ngClass]="{'selected': ratingTemp > 0 || currentRating.valor > 0}" (mouseover)="ratingTemp = 1" (click)="currentRating.valor = ratingTemp" ></i>
+                                        <i class="fa fa-star" [ngClass]="{'selected': ratingTemp > 1 || currentRating.valor > 1}" (mouseover)="ratingTemp = 2" (click)="currentRating.valor = ratingTemp" ></i>
+                                        <i class="fa fa-star" [ngClass]="{'selected': ratingTemp > 2 || currentRating.valor > 2}" (mouseover)="ratingTemp = 3" (click)="currentRating.valor = ratingTemp" ></i>
+                                        <i class="fa fa-star" [ngClass]="{'selected': ratingTemp > 3 || currentRating.valor > 3}" (mouseover)="ratingTemp = 4" (click)="currentRating.valor = ratingTemp" ></i>
+                                        <i class="fa fa-star" [ngClass]="{'selected': ratingTemp > 4 || currentRating.valor > 4}" (mouseover)="ratingTemp = 5" (click)="currentRating.valor = ratingTemp" ></i>
+                                    </div>
+                                </div>
+                                <a class="waves-effect waves-light btn" (click)="rate()">Calificar!</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="col s12">
+                    <div class="row card-panel grey lighten-5 z-depth-1" *ngFor="#rate of ratings" *ngIf="rate.user && rate.user.imagenPrincipal">
+                        <div class="item-detail-rating right">
+                            <div>
+                                <i class="fa fa-star" [ngClass]="{'selected': rate.valor > 0}"></i>
+                                <i class="fa fa-star" [ngClass]="{'selected': rate.valor > 1}"></i>
+                                <i class="fa fa-star" [ngClass]="{'selected': rate.valor > 2}"></i>
+                                <i class="fa fa-star" [ngClass]="{'selected': rate.valor > 3}"></i>
+                                <i class="fa fa-star" [ngClass]="{'selected': rate.valor > 4}"></i>
+                            </div>
+                        </div>
+                        <div class=" valign-wrapper col s3" *ngIf="rate.user && rate.user.imagenPrincipal">
+                            <img src="{{rate.user.imagenPrincipal}}" alt="" class="circle avatar">
+                            <span>{{rate.user.name || rate.user.nombre}}</span>
+                        </div>
+                      <span class="black-text col s9">
+                       {{rate.comentario}}
+                      </span>
+                      <span class="date">
+                       {{rate.fecha}}
+                      </span>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li>
+            <div class="collapsible-header"><i class="fa fa-question"></i>Preguntas</div>
+            <div class="collapsible-body questions">
+                <div class="card-panel grey lighten-5 z-depth-1 row" [hidden]="!loggedIn()">
+                    <div class="input-field col s8 offset-s2">
+                        <input id="ask" type="text" class="validate" [(ngModel)]="currentQuestion.descripcion">
+                        <label class="active" for="ask">Pregunta</label>
+                    </div>
+                    <a class="waves-effect waves-light btn col s2" (click)="addQuestion()">Publicar!</a>
+                </div>
+                <div class="divider"></div>
+                <div class="row">
+                    <div class="col s12 question-list">
+                        <div class="row card-panel grey lighten-5 z-depth-1" *ngFor="#question of questions" >
+                            <div class=" valign-wrapper col s3" *ngIf="question.user && question.user.imagenPrincipal">
+                                <img src="{{question.user.imagenPrincipal}}" alt="" class="circle avatar">
+                                <span>{{question.user.name || question.user.nombre}}</span>
+                            </div>
+                            <p class="col s9">
+                                {{question.descripcion}}
+                            </p>
+                          <span class="date">
+                           {{question.fecha}}
+                          </span>
+                            <div class="container row col s12 m5 offset-m7 buttons">
+                                <a class="waves-effect waves-light btn col s6" (click)="getAnswers(question); question.showAnswers = question.showAnswers?false:true;">
+                                    <span [hidden]="question.showAnswers">Ver respuestas</span>
+                                    <span [hidden]="!question.showAnswers">Ocultar respuestas</span>
+                                </a>
+                                <a class="waves-effect waves-light btn col s4" (click)="question.showAnswer = true">
+                                    <span>Responder</span>
+                                </a>
+                            </div>
+                            <div class="container response" [hidden]="!question.showAnswer">
+                                <div class="input-field col s12">
+                                    <input id="ask{{question.id}}" type="text" class="validate" [(ngModel)]="question.message">
+                                    <label class="active" [attr.for]="'ask' + question.id">Pregunta</label>
+                                </div>
+                                <a class="waves-effect waves-light btn col s3 offset-s9" (click)="addAnswer(question, question.message);question.showAnswer = false; ">Publicar!</a>
+                            </div>
+                            <div class="container answers" [hidden]="!question.showAnswers">
+                                <div class="row card-panel grey lighten-5 z-depth-1" *ngFor="#answer of question.answers" >
+                                    <div class=" valign-wrapper col s3" *ngIf="answer.user && answer.user.imagenPrincipal">
+                                        <img src="{{answer.user.imagenPrincipal}}" alt="" class="circle avatar">
+                                        <span>{{answer.user.name || answer.user.nombre}}</span>
+                                    </div>
+                                    <p class="col s9">
+                                        {{answer.descripcion}}
+                                    </p>
+                                  <span class="date">
+                                   {{answer.fecha}}
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+
 </div>

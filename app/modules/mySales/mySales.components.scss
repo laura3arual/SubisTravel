@@ -1,0 +1,19 @@
+@import "./../../assets/styles/subis.travel/variables";
+.transactions {
+.all-transactions {
+  height: 661px;
+  overflow-y: auto;
+  thead{
+    color: $st-fourth-color;
+  }
+  tr {
+    color: #2B3954;
+    font-family: monospace;
+  }
+  table.striped > tbody > tr:nth-child(odd) {
+    background-color: rgba(229, 249, 157, 0.41);
+  }
+
+
+}
+}

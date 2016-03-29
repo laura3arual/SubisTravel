@@ -1,22 +1,70 @@
 @import "./../../assets/styles/subis.travel/variables";
-
-h1 {
-  font-size: 1.4705882352941178em;
-}
-
-
-.rating {
-  display: inline-block;
-  border-radius: 2px;
-  font-size: 15px;
-  padding: 7px 15px 6px;
-  position: relative;
-  top: -15px;
-  left: 15px;
-  i {
-    color: lightgray;
+.item-detail {
+  h1 {
+    font-size: 1.4705882352941178em;
+    color: $st-main-color;
+    display: inline-block;
   }
-  .selected {
-    color: $st-fourth-color;
+
+  img{
+    width: 515px;
+    margin: auto;
+    display: block;
   }
+  .item-detail-rating {
+      border-radius: 2px;
+      font-size: 15px;
+      padding: 7px 15px 6px;
+      position: relative;
+      i {
+        color: lightgray;
+      }
+      .selected {
+        color: $st-fourth-color;
+      }
+    }
+  .item-content {
+    margin-top: 63px;
+
+    .item-current-rating {
+      border-radius: 2px;
+      font-size: 15px;
+      padding: 7px 15px 6px;
+      position: relative;
+      i {
+        cursor: pointer;
+        color: lightgray;
+        &:hover:before,
+        &:hover:before ~ &:before {
+          color: $st-fourth-color;
+        }
+      }
+      .selected {
+        color: $st-fourth-color;
+      }
+    }
+    .ratings, .questions {
+      .avatar {
+        width: 60px;
+        height: 60px;
+      }
+
+      .date {
+        min-width: 0px;
+        padding: 0px;
+        font-size: 12px;
+        vertical-align: top;
+        float: right;
+      }
+    }
+    .question-list {
+      .buttons {
+        .btn {
+          margin: 0 1%;
+        }
+      }
+    }
+
+  }
+
 }

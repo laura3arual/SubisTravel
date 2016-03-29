@@ -1,0 +1,32 @@
+<div class="container transactions">
+
+    <h1 class="center">Todas las transacciones </h1>
+    <div class="container all-transactions">
+        <table class="striped">
+            <thead>
+            <tr>
+                <th data-field="date">Fecha</th>
+                <th data-field="id">Id</th>
+                <th data-field="item">Item</th>
+                <th data-field="user">Usuario</th>
+                <th data-field="quantity">Cantidad</th>
+                <th data-field="value">Valor</th>
+                <th data-field="state">Estado</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="#transactionItem of transactions">
+                <td class="left-align">{{transactionItem.fecha}}</td>
+                <td class="left-align">{{transactionItem.id}}</td>
+                <td *ngIf="transactionItem.user && transactionItem.item" class="left-align"><a [routerLink]="['/Item', {id: transactionItem.item.id}]">{{transactionItem.item.id}} - {{transactionItem.item.nombre}}</a></td>
+                <td *ngIf="transactionItem.user && transactionItem.item" class="left-align">{{transactionItem.user.id}} - {{transactionItem.user.nombre}}</td>
+                <td class="center-align">{{transactionItem.cantidad}}</td>
+                <td class="right-align">${{transactionItem.valor}}</td>
+                <td class="right-align">{{transactionItem.estado}}</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,7 +1,9 @@
 <!--Navigation-->
 <div class="navbar-fixed">
     <ul id="user-menu" class="dropdown-content">
-        <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Profile</a></li>
+        <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Perfil</a></li>
+        <li *ngIf="loggedIn() && role === 3"><a [routerLink]="['/MyPurchases']">Mis Compras</a></li>
+        <li *ngIf="loggedIn() && role === 4"><a [routerLink]="['/MySales']">Mis Ventas</a></li>
         <li><a href="#" *ngIf="loggedIn()" (click)="logout()" class="fa fa-sign-out"></a></li>
     </ul>
     <nav id="nav_f" class="default_color" role="navigation">
@@ -9,18 +11,22 @@
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo left"> </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a [routerLink]="['/Home']">Home</a></li>
-                    <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Profile</a></li>
+                    <li><a [routerLink]="['/Home']">Inicio</a></li>
+                    <li *ngIf="loggedIn()"><a [routerLink]="['/Providers']">Proveedores</a></li>
+                    <li *ngIf="loggedIn()"><a [routerLink]="['/NewItem']">Crear Item</a></li>
+                    <li *ngIf="loggedIn()"><a [routerLink]="['/ShoppingCart']"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li *ngIf="loggedIn() && role === 5"><a [routerLink]="['/Transactions']">Transacciones</a></li>
+                    <li *ngIf="loggedIn() && role === 3"><a [routerLink]="['/Unsuscribe']">Dar de baja</a></li>
                     <li><a href="#" *ngIf="!loggedIn()" (click)="login()" class="fa fa-sign-in"></a></li>
-                    <li><a href="#" (click)="loggedIn()" class="fa fa-sign-in"></a></li>
 
                     <li><a href="#!" class="dropdown-button" data-activates="user-menu">
                             <header-component *ngIf="loggedIn()"></header-component>
                     </a></li>
                 </ul>
                 <ul id="nav-mobile" class="side-nav">
-                    <li><a [routerLink]="['/Home']">Home</a></li>
-                    <li><a [routerLink]="['/Gallery']">Gallery</a></li>
+                    <li><a [routerLink]="['/Home']">Inicio</a></li>
+                    <li><a [routerLink]="['/Providers']">Proveedores</a></li>
+                    <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Perfil</a></li>
                 </ul>
                 <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
             </div>

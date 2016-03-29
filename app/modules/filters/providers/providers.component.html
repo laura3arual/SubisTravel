@@ -1,0 +1,13 @@
+
+<div class="col s12">
+    <ul class="collection">
+        <li class="collection-item row valign-wrapper" *ngFor="#provider of providerList">
+            <img [routerLink]="['/Provider', {id: provider.id}]" src="{{provider.imagenPrincipal}}" class="responsive-img col s2 provider-image">
+            <span class="title col s9 valign">{{provider.nombre}}</span>
+            <div class="check col s1 valign">
+                <input #selected type="checkbox" id="{{'provider' + provider.id}}" (change)="updateProvider(provider.id)"/>
+                <label [attr.for]="'provider' + provider.id"></label>
+            </div>
+        </li>
+    </ul>
+</div>

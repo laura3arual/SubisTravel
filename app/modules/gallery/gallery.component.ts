@@ -1,8 +1,8 @@
 import {Component} from "angular2/core";
 import {GalleryServices} from "./gallery.services";
 import {Item} from "./gallery.models";
-import {PaginationComponent} from "../core/components/pagination/pagination.component";
 import {ROUTER_DIRECTIVES} from "angular2/router";
+import {PaginationComponent} from "../filters/pagination/pagination.component";
 
 
 @Component({

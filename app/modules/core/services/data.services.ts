@@ -22,7 +22,9 @@ export class DataServices {
         return this._http.get(_restUrl)
             .map((response: any) => {
                 return response.json();
-            }).catch(this.handleError);
+            }).catch((error: Response) => {
+                return this.handleError(error);
+            });
     }
 
     public postData(_restUrl: string, _data: string, _headers: Headers = undefined): Promise<any> {
@@ -50,8 +52,8 @@ export class DataServices {
     }
 
     private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+        let errorMessage = error.json? error.json(): 'Server error';
+        return Observable.throw(errorMessage);
     }
 
 }

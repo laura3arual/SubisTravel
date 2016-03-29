@@ -1,0 +1,35 @@
+<!--Work-->
+<div class="container row gallery providers-gallery">
+    <div [hidden]="!providers.length" class="container col s12 provider-list-container">
+        <div class="row provider-list">
+            <div class="col s6 m4 l3" *ngFor="#provider of providers">
+                <div class="card">
+                    <div class="card-image">
+                        <a [routerLink]="['/Provider', {id: provider.id}]">
+                            <img src="{{provider.imagenPrincipal}}">
+                        </a>
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title col s12">
+                            <h3><a href="">{{provider.nombre}}</a></h3>
+                        </span>
+                        <div class="card-detail col s12">
+                            <span class="value">{{provider.direccion}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <pagination></pagination>
+    </div>
+    <div *ngIf="!providers.length" class="container col s12 provider-list-container valign-wrapper">
+        <div class="empty-list valign">
+                <p>
+                    <i class="fa fa-exclamation-circle fa-5"></i>Ningún resultado coincide con los criterios de búsqueda. Por favor intenta con nuevos parámetros.
+                </p>
+        </div>
+    </div>
+
+</div>
+
+

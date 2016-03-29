@@ -1,0 +1,32 @@
+@import "./../../../assets/styles/subis.travel/variables";
+
+.check{
+  float: right;
+}
+.collection {
+  border: none !important;
+
+  .collection-item {
+    background-color: rgba(190, 183, 114, 0.45) !important;
+    border: none !important;
+    box-shadow: 1px 1px 3px $st-main-color;
+    cursor: pointer;
+    &.active {
+      background-color: darken(#337ab7, 10%) !important;
+    }
+  }
+}
+
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row {
+  img.provider-image {
+    height: 40px;
+    padding: 0 0.2rem;
+    background-color: rgba(255, 255, 255, 0.48);
+  }
+}

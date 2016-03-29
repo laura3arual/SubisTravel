@@ -1,0 +1,18 @@
+@import "./../../assets/styles/subis.travel/variables";
+.shopping-cart {
+  min-height: 725px;
+  max-height: 771px;
+  .collection {
+    max-height: 543px;
+    overflow-y: auto;
+    .collection-item {
+      background-color: transparent !important;
+    }
+  }
+  .delete-btn {
+    color: $st-second-color;
+    &:hover {
+      color: darken($st-second-color, 10);
+    }
+  }
+}

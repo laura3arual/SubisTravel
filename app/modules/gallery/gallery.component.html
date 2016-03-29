@@ -11,16 +11,16 @@
                     </div>
                     <div class="card-content">
                         <div class="rating">
-                            <a href="#">
+                            <div>
                                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 0}"></i>
                                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 1}"></i>
                                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 2}"></i>
                                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 3}"></i>
                                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 4}"></i>
-                            </a>
+                            </div>
                         </div>
                         <span class="card-title col s12">
-                            <h3><a href="">{{item.descripcion}}</a></h3>
+                            <h3><a href="">{{item.nombre}}</a></h3>
                         </span>
                         <div class="card-detail col s12">
                             <span class="value">${{item.valor}}</span>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from "angular2/core";
-import {Profile} from "../../../profile/profile.models";
+import {AppServices} from "../../../app/app.services";
+import {User} from "../../models/User";
 
 @Component({
     selector: "header-component",
@@ -8,10 +9,9 @@ import {Profile} from "../../../profile/profile.models";
 })
 
 export class HeaderComponent {
-    profile: Profile;
+    profile: User;
 
-    constructor(){
-        this.profile = JSON.parse(localStorage.getItem("profile"));
-        console.log(this.profile);
+    constructor(private _appServices: AppServices){
+        this.profile = this._appServices.user;
     }
 }

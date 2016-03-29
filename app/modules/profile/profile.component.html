@@ -1,2 +1,15 @@
-<h1>{{profile.name}}</h1>
-<img src="{{profile.picture}}" alt="">
+<div class="container row profile">
+    <h1 class="col s12 center-align">{{profile.name}}</h1>
+    <div class="col s1 offset-s5">
+        <img src="{{profile.picture}}" alt="" class="circle center">
+    </div>
+    <div class="col s12">
+        <p>Role:
+            <span *ngIf="profile.role == 2">Entidad</span>
+            <span *ngIf="profile.role == 3">Cliente</span>
+            <span *ngIf="profile.role == 4">Empresa</span>
+            <span *ngIf="profile.role == 5">Administrador</span>
+        </p>
+        <a class="waves-effect waves-light btn col s2" (click)="unsuscribe()">Solicitar baja</a>
+    </div>
+</div>
