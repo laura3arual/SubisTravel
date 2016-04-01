@@ -11,6 +11,7 @@ class Item {
     idEntidad: number;
     idTipo: number;
     calificaciones: string;
+    descripcionCantidad: string;
 }
 
 class RatingPost {

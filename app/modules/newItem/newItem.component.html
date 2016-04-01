@@ -9,6 +9,10 @@
                 <input id="description" type="text" class="validate" [(ngModel)]="currentItem.descripcion" required>
                 <label for="description">Descripción</label>
             </div>
+            <div class="input-field col s6">
+                <input id="descriptionCantidad" type="text" class="validate" [(ngModel)]="currentItem.descripcionCantidad" required>
+                <label for="descriptionCantidad">Descripción Cantidad</label>
+            </div>
             <div class="input-field col s12 m6">
                 <input id="disabled" type="text" class="validate" [(ngModel)]="currentItem.imagen" required>
                 <label for="disabled">Imagen</label>
@@ -33,7 +37,7 @@
             </div>
 
         </div>
-        <a class="waves-effect waves-light btn" (click)="create()">Save</a>
+        <a class="waves-effect waves-light btn" (click)="create()">Guardar</a>
     </form>
 
 </div>

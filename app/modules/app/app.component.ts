@@ -9,6 +9,7 @@ import {ProvidersGalleryServices} from "../providersGallery/providersGallery.ser
 import {AppServices} from "./app.services";
 import {ShoppingCartServices} from "../shoppingCart/shoppingCart.services";
 import {ItemServices} from "../item/item.services";
+import {User} from "../core/models/User";
 
 @Component({
     selector: 'app',
@@ -26,14 +27,14 @@ import {ItemServices} from "../item/item.services";
 @RouteConfig(ROUTES)
 
 export class AppComponent implements OnInit{
-    private role;
+    private currentUser: User;
 
     ngOnInit():any {
         (<any>$(".button-collapse")).sideNav();
     }
 
     constructor(private _appServices: AppServices) {
-        this.role = _appServices.user.role;
+        this.currentUser = _appServices.user;
     }
 
     login(){

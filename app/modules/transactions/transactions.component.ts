@@ -25,7 +25,7 @@ export class TransactionsComponent implements OnInit{
                 private _itemServices: ItemServices,
                 private _router: Router) {
         this.transactions = [];
-        if(this._appServices.user.role === 4) {
+        if(this._appServices.user.role === 5) {
             this.loadAllTransactions();
         } else {
             this._router.navigate( ['Home'] );

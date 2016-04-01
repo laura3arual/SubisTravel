@@ -7,9 +7,9 @@
         <p>Role:
             <span *ngIf="profile.role == 2">Entidad</span>
             <span *ngIf="profile.role == 3">Cliente</span>
-            <span *ngIf="profile.role == 4">Empresa</span>
+            <span *ngIf="profile.role == 4">Proveedor</span>
             <span *ngIf="profile.role == 5">Administrador</span>
         </p>
-        <a class="waves-effect waves-light btn col s2" (click)="unsuscribe()">Solicitar baja</a>
+        <a *ngIf="profile.role == 4" class="waves-effect waves-light btn col s2" (click)="unsuscribe()">Solicitar baja</a>
     </div>
 </div>

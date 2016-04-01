@@ -7,6 +7,7 @@ class User {
     given_name: string;
     gender: string;
     picture: string;
+    email: string;
 }
 class UserQuery {
     id: number;

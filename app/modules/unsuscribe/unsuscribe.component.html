@@ -1,0 +1,41 @@
+<div class="container row profile">
+    <h1 class="col s12 center-align">Lista de solicitudes de baja</h1>
+    <div class="container all-transactions">
+        <table class="striped">
+            <thead>
+            <tr>
+                <th data-field="date">ID</th>
+                <th data-field="id">Dirección</th>
+                <th data-field="item">Email</th>
+                <th data-field="user">Identificación</th>
+                <th data-field="quantity">Nombre</th>
+                <th data-field="value">Estado</th>
+                <th data-field="state">Role</th>
+                <th data-field="state"></th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr *ngFor="#unsuscribe of unsuscribeList">
+                <td class="left-align">{{unsuscribe.id}}</td>
+                <td class="left-align">{{unsuscribe.direccion}}</td>
+                <td class="left-align">{{unsuscribe.email}}</td>
+                <td class="left-align">{{unsuscribe.identificacion}}</td>
+                <td class="left-align">
+                    <img src="{{unsuscribe.imagenPrincipal}}" alt="">
+                    {{unsuscribe.nombre}}
+                </td>
+                <td class="center-align">{{unsuscribe.estado}}</td>
+                <td class="right-align">
+                    <span *ngIf="unsuscribe.idTipo == 2">Entidad</span>
+                    <span *ngIf="unsuscribe.idTipo == 3">Cliente</span>
+                    <span *ngIf="unsuscribe.idTipo == 4">Proveedor</span>
+                    <span *ngIf="unsuscribe.idTipo == 5">Administrador</span>
+                </td>
+                <td class="left-align">  <a class="waves-effect waves-light btn" (click)="unsuscribe(unsuscribe.id)">Dar de baja</a></td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

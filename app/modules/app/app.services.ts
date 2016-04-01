@@ -64,6 +64,7 @@ export class AppServices {
         credentials.socialId = profile.user_id;
         credentials.picture = profile.picture;
         credentials.name = profile.name;
+        credentials.email = undefined;
         this._dataServices.postData(Config.baseUrl + this.apiUrlSocialLogin, JSON.stringify(credentials)).then((session: InternalSession) => {
             this.user = profile;
             this.user.role = session.idType;

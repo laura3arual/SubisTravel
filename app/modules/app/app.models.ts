@@ -8,6 +8,7 @@ class Credentials {
     socialId: string;
     picture: string;
     name: string;
+    email: string;
 }
 class InternalSession {
     idEntity: number;

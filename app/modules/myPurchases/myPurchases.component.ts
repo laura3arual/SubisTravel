@@ -27,7 +27,7 @@ export class MyPurchasesComponent implements OnInit{
                 private _routeParams: RouteParams,
                 private _router: Router) {
      this.transactions = [];
-        if(this._appServices.user.role === 3) {
+        if(this._appServices.user.role === 3 || this._appServices.user.role === 4) {
             this.loadMyPurchases();
         } else {
             this._router.navigate( ['Home'] );

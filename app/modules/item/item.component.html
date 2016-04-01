@@ -15,7 +15,7 @@
     <div class="section row">
         <div class="input-field col s12 m2 offset-m9">
             <input id="quantity" type="text" class="validate" [(ngModel)]="quantity">
-            <label class="active" for="quantity">Cantidad</label>
+            <label class="active" for="quantity">Cantidad de {{item.descripcionCantidad}}</label>
         </div>
         <a class="btn-floating btn-large waves-effect right" (click)="addItemToShoppingCart(item.id, quantity); quantity = undefined"><i class="fa fa-cart-plus tooltipped" data-tooltip="Añadir a mi carro de compras!"></i></a>
     </div>
