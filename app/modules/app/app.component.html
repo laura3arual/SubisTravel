@@ -2,22 +2,23 @@
 <div class="navbar-fixed">
     <ul id="user-menu" class="dropdown-content">
         <li><a *ngIf="loggedIn()" [routerLink]="['/Profile']">Perfil</a></li>
-        <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 3"><a [routerLink]="['/MyPurchases']">Mis Compras</a></li>
-        <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 4"><a [routerLink]="['/MySales']">Mis Ventas</a></li>
-        <li><a href="#" *ngIf="loggedIn()" (click)="logout()" class="fa fa-sign-out"></a></li>
+        <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 3"><a [routerLink]="['/MyPurchases']"><i class="fa fa-bar-chart"></i>Mis Compras</a></li>
+        <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 4"><a [routerLink]="['/MySales']"><i class="fa fa-bar-chart"></i>Mis Ventas</a></li>
+        <li><a href="#" *ngIf="loggedIn()" (click)="logout()"><i class="fa fa-sign-out"></i>Salir</a></li>
     </ul>
     <nav id="nav_f" class="default_color" currentUser.role="navigation">
         <div class="container">
             <div class="nav-wrapper">
                 <a href="#" class="brand-logo left"> </a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a [routerLink]="['/Home']">Inicio</a></li>
-                    <li><a [routerLink]="['/Providers']">Proveedores</a></li>
-                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 4"><a [routerLink]="['/NewItem']">Crear Item</a></li>
-                    <li *ngIf="loggedIn()"><a [routerLink]="['/ShoppingCart']"><i class="fa fa-shopping-cart"></i></a></li>
-                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 5"><a [routerLink]="['/Transactions']">Transacciones</a></li>
-                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 5"><a [routerLink]="['/Unsuscribe']">Solicitudes de baja</a></li>
-                    <li><a href="#" *ngIf="!loggedIn()" (click)="login()" class="fa fa-sign-in"></a></li>
+                    <li><a [routerLink]="['/Home']"><i class="fa fa-home"></i>Inicio</a></li>
+                    <li><a [routerLink]="['/Providers']"><i class="fa fa-users"></i>Proveedores</a></li>
+                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 4"><a [routerLink]="['/NewItem']"><i class="fa fa-plus"></i>Crear Item</a></li>
+                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 5"><a [routerLink]="['/NewProvider']"><i class="fa fa-plus"></i>Crear Proveedor</a></li>
+                    <li *ngIf="loggedIn()"><a [routerLink]="['/ShoppingCart']"><i class="fa fa-shopping-cart"></i>Mis Compras</a></li>
+                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 5"><a [routerLink]="['/Transactions']"><i class="fa fa-bar-chart"></i>Transacciones</a></li>
+                    <li *ngIf="loggedIn() && currentUser.role && currentUser.role === 5"><a [routerLink]="['/Unsuscribe']"><i class="fa fa-thumbs-down"></i>Solicitudes de baja</a></li>
+                    <li><a href="#" *ngIf="!loggedIn()" (click)="login()"><i class="fa fa-sign-in"></i>Ingresar</a></li>
 
                     <li><a href="#!" class="dropdown-button" data-activates="user-menu">
                             <header-component *ngIf="loggedIn()"></header-component>

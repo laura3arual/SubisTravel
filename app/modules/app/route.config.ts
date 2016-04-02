@@ -10,6 +10,7 @@ import {TransactionsComponent} from "../transactions/transactions.component";
 import {MyPurchasesComponent} from "../myPurchases/myPurchases.component";
 import {MySalesPurchasesComponent} from "../mySales/mySales.component";
 import {UnsuscribeComponent} from "../unsuscribe/unsuscribe.component";
+import {NewProviderComponent} from "../newProvider/newProvider.component";
 
 export const ROUTES = [
     { path: '/', component: HomeComponent, name: 'Home', useAsDefault: true},
@@ -19,6 +20,7 @@ export const ROUTES = [
     { path: '/providers', component: ProvidersComponent, name: 'Providers'},
     { path: '/provider/:id', component: ProviderComponent, name: 'Provider'},
     { path: '/new-item', component: NewItemComponent, name: 'NewItem'},
+    { path: '/new-provider', component: NewProviderComponent, name: 'NewProvider'},
     { path: '/shopping-cart', component: ShoppingCartComponent, name: 'ShoppingCart'},
     { path: '/transactions', component: TransactionsComponent, name: 'Transactions'},
     { path: '/my-purchases', component: MyPurchasesComponent, name: 'MyPurchases'},
