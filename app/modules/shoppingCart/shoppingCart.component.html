@@ -1,5 +1,5 @@
-<div class="shopping-cart container ">
-    <h1 class="center">CARRO DE COMPRAS</h1>
+<div class="shopping-cart container page-container">
+    <h1 class="center principal-title">CARRO DE COMPRAS</h1>
     <ul class="collection">
         <li class="collection-item" *ngFor="#item of currentCart.items">
             <div class="row valign-wrapper" *ngIf="item.detail && item.detail.nombre">
@@ -24,28 +24,76 @@
         <li>
             <div class="collapsible-header"><i class="fa fa-info"></i>Detalles de Compra</div>
             <div class="collapsible-body details">
-                <div class="input-field col s8 offset-s2">
-                    <input id="name" type="text" class="validate">
-                    <label class="active" for="name">Nombre</label>
-                </div>
-            </div>
+                <div class="row">
+                    <div class="input-field col s5 offset-s1">
+                        <input id="name" type="text" class="validate">
+                        <label class="active" for="name">Nombres</label>
+                    </div>
+                    <div class="input-field col s5 offset-s1">
+                        <input id="Apellidos" type="text" class="validate">
+                        <label class="active" for="Apellidos">Apellidos</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s5 offset-s1">
+                        <input id="identificación" type="text" class="validate">
+                        <label class="active" for="identificación">Numero de identificación</label>
+                    </div>
+                    <div class="input-field col s5 offset-s1">
+                        <input id="Telefono" type="text" class="validate">
+                        <label class="active" for="Telefono">Telefono</label>
+                    </div>
+                </div> 
+            </div> 
         </li>
         <li>
             <div class="collapsible-header"><i class="fa fa-credit-card"></i>Medios de pago</div>
             <div class="collapsible-body payment">
-                <img src="http://www.electronictransfer.com/blog/wp-content/uploads/2012/04/visa-mastercard.jpg" alt="">
+                <div class="row">
+                    <div class="input-field col s4 offset-s1">
+                        <img src="http://www.electronictransfer.com/blog/wp-content/uploads/2012/04/visa-mastercard.jpg" alt="" class="img-credit-card">
+                        <label class="lbl-credit-card">Seleccione tarjeta de crédito</label>
+                    </div>
+                    <div class="input-field col s6 offset-s1">
+                        <select class="browser-default">
+                            <option>Master Card</option>
+                            <option>American Express</option>
+                            <option>Visa electron</option>
+                        </select>   
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s11 offset-s1">
+                        <input id="cardName" type="text" class="validate">
+                        <label class="active" for="cardName">Nombre en la tarjeta</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s11 offset-s1">
+                        <input id="cardNumber" type="text" class="validate">
+                        <label class="active" for="cardNumber">Número de tarjeta</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <div class="input-field col s5  offset-s1">
+                        <input id="expireDate" type="text" class="validate">
+                        <label class="active" for="expireDate">Fecha de vencimiento</label>
+                    </div>
+                    <div class="input-field col s5  offset-s1">
+                        <input id="validateCode" type="text" class="validate">
+                        <label class="active" for="validateCode">Codigo verificación</label>
+                    </div>
+                </div> 
+                <div class="row">
+                    <button class="btn waves-effect waves-light right" type="submit" name="action" (click)="buy()">Comprar!
+                        <i class="fa fa-shopping-bag"></i>
+                    </button>
+                    <br>
+                </div>
             </div>
 
         </li>
 
-        <li>
-            <div class="collapsible-header"><i class="fa fa-question"></i>Confirmar Pago</div>
-            <div class="collapsible-body confirm">
-                <button class="btn waves-effect waves-light right" type="submit" name="action" (click)="buy()">Comprar!
-                    <i class="fa fa-shopping-bag"></i>
-                </button>
-            </div>
-        </li>
     </ul>
 
 </div>

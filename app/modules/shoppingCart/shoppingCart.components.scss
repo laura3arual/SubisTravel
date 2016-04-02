@@ -1,7 +1,5 @@
 @import "./../../assets/styles/subis.travel/variables";
 .shopping-cart {
-  min-height: 725px;
-  max-height: 771px;
   .collection {
     max-height: 543px;
     overflow-y: auto;
@@ -15,4 +13,26 @@
       color: darken($st-second-color, 10);
     }
   }
+  .lbl-credit-card{
+    margin-left: 50px;
+  }
+  .img-credit-card{
+    width: 50px;
+  }
+  .principal-title{
+    margin:0px;
+    background: $st-yellow-color;
+    color: #fff;
+    text-shadow: 2px 2px #aaa;
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+}
+.page-container{
+  border: 1px solid #ddd;
+  border-radius: 10px 10px 0px 0px;
+  box-shadow: 5px 5px 5px #ccc;
+  margin: 70px auto 50px !important;
+  padding: 20px 20px 20px 20px;
 }
