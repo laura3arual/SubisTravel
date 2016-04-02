@@ -1,6 +1,14 @@
 <div class="container provider-detail">
-    <h1>{{provider.nombre}}</h1>
+    <h1 class="principal-title">{{provider.nombre}}</h1>
     <img src="{{provider.imagenPrincipal}}" alt="">
-    <p>{{provider.direccion}}</p>
-    <p>{{provider.email}}</p>
+    <div class="row">
+    	<div class="col s5 offset-s1">
+    		<label>Dirección</label>
+    		<p>{{provider.direccion}}</p>
+    	</div>
+    	<div class="col s5 offset-s1">
+    		<label>Correo electrónico</label>
+    		<p>{{provider.email}}</p>
+    	</div>
+    </div>
 </div>

@@ -1,6 +1,24 @@
+@import "./../../assets/styles/subis.travel/variables";
 .profile {
-  img {
-    height: 171px;
-    display: block;
+	max-width:400px!important;
+	border: 1px solid #ddd;
+	border-radius: 10px 10px 0px 0px;
+	box-shadow: 5px 5px 5px #ccc;
+	margin: 70px auto 50px !important;
+	padding: 20px 20px 20px 20px;
+
+	img {
+		margin:20px auto;
+		height: 171px;
+		display: block;
+	}
+
+  .principal-title{
+    margin:0px;
+    background: $st-yellow-color;
+    color: #fff;
+    text-shadow: 2px 2px #aaa;
+    padding: 10px!important;
+    border-radius: 5px;
   }
 }
