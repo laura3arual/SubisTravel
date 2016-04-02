@@ -1,5 +1,5 @@
 <div class="container item-detail">
-    <div class="valign-wrapper">
+    <div class="valign-wrapper principal-title">
         <h1 class="valign">{{item.nombre}}</h1>
         <div class="item-detail-rating valign">
             <div>
@@ -103,11 +103,11 @@
                            {{question.fecha}}
                           </span>
                             <div class="container row col s12 m5 offset-m7 buttons">
-                                <a class="waves-effect waves-light btn col s6" (click)="getAnswers(question); question.showAnswers = question.showAnswers?false:true;">
+                                <a class="waves-effect waves-light btn col s5" (click)="getAnswers(question); question.showAnswers = question.showAnswers?false:true;">
                                     <span [hidden]="question.showAnswers">Ver respuestas</span>
                                     <span [hidden]="!question.showAnswers">Ocultar respuestas</span>
                                 </a>
-                                <a class="waves-effect waves-light btn col s4" (click)="question.showAnswer = true">
+                                <a class="waves-effect waves-light btn col s5" (click)="question.showAnswer = true">
                                     <span>Responder</span>
                                 </a>
                             </div>
