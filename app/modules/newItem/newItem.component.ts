@@ -31,7 +31,6 @@ export class NewItemComponent implements OnInit{
                 private _router: Router,
                 private _geolocationServices: GeolocationServices) {
         this.position = new Position(51.673858, 7.815982);
-        this.marker = new Marker();
         this.categories = [];
         this.currentItem = new ItemPost();
         this.currentItem.idEntidad = this._appServices.user.internalEntityId;

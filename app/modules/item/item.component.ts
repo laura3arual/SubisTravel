@@ -76,7 +76,7 @@ export class ItemComponent implements OnInit{
     }
 
     ngAfterViewChecked(){
-        if(this._appServices.config){
+        if(this._appServices.config && this.showRatingsAndComments != undefined){
             this.showRatingsAndComments = this._appServices.config.commentsAndRatings;
         }
     }
