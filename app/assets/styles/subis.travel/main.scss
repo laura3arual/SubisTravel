@@ -1,12 +1,11 @@
-@import "../libs/toastr";
 @import "../libs/font-awesome/font-awesome.scss";
 @import "../libs/materialize/sass/materialize";
 @import "../libs/jquery-ui.css";
-@import "../libs/ng2-toastr.css";
 @import "../libs/reset";
 @import "variables";
 @import "mixins";
-@import "commons"; 
+@import "commons";
+@import "../libs/toastr";
 
 
 /*libreries */

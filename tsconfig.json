@@ -11,8 +11,8 @@
     "moduleResolution": "node"
   },
   "files": [
-    "typings/tsd.d.ts",
-    "app/contracts/build.d.ts"
+    "app/contracts/build.d.ts",
+    "typings/main.d.ts"
   ],
   "exclude": [
     "node_modules"
@@ -20,6 +20,7 @@
   "filesGlob": [
     "./src/**/*.ts",
     "./test/**/*.ts",
-    "!./node_modules/**/*.ts"
+    "!./node_modules/**/*.ts",
+    "typings/main.d.ts"
     ]
   }

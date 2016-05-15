@@ -1,5 +1,5 @@
 
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {DataServices} from "../core/services/data.services";
 import {Config} from "../core/config";
 import {Category} from "../providersFilters/categories/categories.models";

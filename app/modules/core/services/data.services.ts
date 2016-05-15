@@ -1,8 +1,8 @@
-import {Injectable} from "angular2/core";
-import {Headers} from "angular2/http";
-import {RequestOptionsArgs} from "angular2/http";
-import {Http} from "angular2/http";
-import {Response} from "angular2/http";
+import {Injectable} from "@angular/core";
+import {Headers} from "@angular/http";
+import {RequestOptionsArgs} from "@angular/http";
+import {Http} from "@angular/http";
+import {Response} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 
 @Injectable()
@@ -31,6 +31,16 @@ export class DataServices {
         this.setHeaders(_headers);
 
         return this._http.post(_restUrl, _data, this._options)
+            .map((response: any) => JSON.parse(response._body)).toPromise()
+            .then((response: any) => {
+                return response;
+            });
+    }
+
+    public putData(_restUrl: string, _data: string, _headers: Headers = undefined): Promise<any> {
+        this.setHeaders(_headers);
+
+        return this._http.put(_restUrl, _data, this._options)
             .map((response: any) => JSON.parse(response._body)).toPromise()
             .then((response: any) => {
                 return response;

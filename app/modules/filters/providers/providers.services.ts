@@ -1,4 +1,4 @@
-import {Injectable, EventEmitter} from "angular2/core";
+import {Injectable, EventEmitter} from "@angular/core";
 import {Provider} from "./providers.models";
 import {DataServices} from "../../core/services/data.services";
 import {Config} from "../../core/config";
@@ -14,7 +14,7 @@ export class ProvidersServices implements IProvidersServices{
     constructor(private _dataServices: DataServices) {
         this.apiUrl = "entidades/porTipo/4";
         this.proviederList = [];
-        this.updateProviders = new EventEmitter();
+        this.updateProviders = new EventEmitter<Array<Provider>>();
     }
 
     public getProviders():void {

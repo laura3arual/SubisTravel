@@ -65,3 +65,34 @@ h1 {
   user-select: none;
   cursor: default;
 }
+
+.input-field label {
+  font-size: 13px;
+
+  line-height: 14px;
+}
+
+nav ul a span.badge {
+  position: static;
+  margin-left: 4px;
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  background-color: #2B3A54;
+  border-radius: 10px;
+}
+
+select {
+  display: block;
+}
+
+.view-container {
+  min-height: 728px;
+}

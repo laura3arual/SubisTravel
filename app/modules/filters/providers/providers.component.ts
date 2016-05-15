@@ -1,8 +1,8 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {ProvidersServices} from "./providers.services";
 import {Provider} from "./providers.models";
 import {GalleryServices} from "../../gallery/gallery.services";
-import {ROUTER_DIRECTIVES} from "angular2/router";
+import {ROUTER_DIRECTIVES} from "@angular/router-deprecated"; 
 
 @Component({
     selector: "providers",

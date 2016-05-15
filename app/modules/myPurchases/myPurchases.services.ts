@@ -1,5 +1,5 @@
 import {Config} from "../core/config";
-import {Injectable} from "angular2/core";
+import {Injectable} from "@angular/core";
 import {DataServices} from "../core/services/data.services";
 import {Transaction} from "./myPurchases.models";
 

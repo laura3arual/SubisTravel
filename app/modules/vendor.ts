@@ -1,20 +1,26 @@
-/// <reference path="./../../node_modules/angular2/typings/browser.d.ts" />
-/// <reference path="./../../node_modules/angular2/typings/es6-collections/es6-collections.d.ts" />
-/// <reference path="./../../node_modules/angular2/typings/es6-promise/es6-promise.d.ts" />
+// Polyfills
+// import 'ie-shim'; // Internet Explorer
+import 'es6-shim';
+// import 'es6-promise';
+import 'reflect-metadata';
+import 'zone.js/dist/zone';
 
-import 'angular2/bundles/angular2-polyfills';
 // Angular 2
-import 'angular2/platform/browser';
-import 'angular2/core';
-import 'angular2/http';
-import 'angular2/router';
+import '@angular/platform-browser';
+import '@angular/platform-browser-dynamic';
+import '@angular/core';
+import '@angular/common';
+import '@angular/http';
+import '@angular/router-deprecated'; 
 
 // RxJS
 import 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-
 import "materialize-css";
 import "wNumb";
+import "toastr";
+// import "./../../node_modules/ng2-toastr/bundles/ng2-toastr.js";
 
+import "angular2-google-maps/bundles/angular2-google-maps.js";

@@ -6,6 +6,7 @@ class Provider {
     nombre: string;
     imagenPrincipal: string;
     idTipo: number;
+    estado: any;
 }
 
 export { Provider };

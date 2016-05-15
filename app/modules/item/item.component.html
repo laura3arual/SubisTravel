@@ -12,7 +12,7 @@
         </div>
     </div>
     <img src="{{item.imagen}}" alt="">
-    <div class="section row">
+    <div class="section row" *ngIf="userRole===3">
         <div class="input-field col s12 m2 offset-m9">
             <input id="quantity" type="text" class="validate" [(ngModel)]="quantity">
             <label class="active" for="quantity">Cantidad de {{item.descripcionCantidad}}</label>
@@ -25,9 +25,20 @@
             <div class="collapsible-body details">
                 <p class="unselectable"><span>Descripción: </span>{{item.descripcion}}</p>
                 <p class="unselectable"><span>Valor: </span>${{item.valor}}</p>
+                <div *ngIf="package && package.idItemPaquete">
+                    <h5>Servicios que incluye:</h5>
+                    <ul class="collection" *ngIf="package.itemsIncluidos.length">
+                        <li class="collection-item row valign-wrapper" *ngFor="#item of package.itemsIncluidos">
+                            <img [routerLink]="['/Item', {id: item.id}]" src="{{item.imagen}}" class="responsive-img col s2 item-image">
+                            <span class="title col s9 valign">{{item.nombre}}</span>
+                        </li>
+                    </ul>
+
+                </div>
+
             </div>
         </li>
-        <li>
+        <li *ngIf="showRatingsAndComments">
             <div class="collapsible-header"><i class="fa fa-smile-o"></i>Calificationes y Comentarios</div>
             <div class="collapsible-body  ratings">
                 <div class="section rate row">

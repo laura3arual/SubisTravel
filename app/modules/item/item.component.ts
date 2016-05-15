@@ -1,7 +1,7 @@
-import {Component} from "angular2/core";
-import {OnInit} from "angular2/core";
+import {Component} from "@angular/core";
+import {OnInit} from "@angular/core";
 import {ItemServices} from "./item.services";
-import {RouteParams, Router} from "angular2/router";
+import {RouteParams, Router, ROUTER_DIRECTIVES} from "@angular/router-deprecated";
 import {Item, RatingPost, Rate, QuestionPost, Question} from "./item.models";
 import {AppServices} from "../app/app.services";
 import {User, UserQuery} from "../core/models/User";
@@ -9,11 +9,14 @@ import * as moment from "moment";
 import {OrderBy} from "../core/pipes/orderBy.pipe";
 import {ShoppingCartServices} from "../shoppingCart/shoppingCart.services";
 import {ShoppingCartItemPost} from "../shoppingCart/shoppingCart.models";
+import {Package} from "../newPackage/newPackage.models";
+import {NewPackageServices} from "../newPackage/newPackage.services";
 
 @Component({
     template: require("./item.component.html"),
     styles: [require("./item.components.scss").toString()],
     pipes: [OrderBy],
+    directives: [ROUTER_DIRECTIVES],
     providers: []
 })
 
@@ -24,13 +27,18 @@ export class ItemComponent implements OnInit{
     private ratings: Array<Rate>;
     private questions: Array<Question>;
     private canComment: boolean;
+    private showRatingsAndComments: boolean;
     private users: Array<UserQuery>;
+    private package: Package;
+    private userRole: number;
 
     constructor(private _itemServices: ItemServices,
                 private _routeParams: RouteParams,
                 private _appServices: AppServices,
                 private _shoppingCartServices: ShoppingCartServices,
                 private _router: Router) {
+
+        this.userRole = this._appServices.user.role;
         this.item = new Item();
         this.currentRating = new RatingPost();
         this.currentQuestion = new QuestionPost();
@@ -49,17 +57,28 @@ export class ItemComponent implements OnInit{
             (<any>$('.tooltipped')).tooltip();
         });
         let itemId = Number(this._routeParams.get("id"));
-        this._itemServices.getItem(itemId).subscribe((item: Item) => {
-            this.item = item;
+        this._itemServices.getItem(itemId).subscribe((item: any) => {
+            this.item = item.item;
             this.getRatings();
             this.getQuestions();
             this.currentQuestion.idItem = item.id;
             this._itemServices.canComment(this.item.id, this._appServices.user.internalUserId).then((response: boolean) => {
                 this.canComment = response;
             });
+            if(this.item.idTipo === 13) {
+                this._itemServices.getPackage(this.item.id).subscribe((pack: Package) => {
+                    this.package = pack;
+                });
+            }
         });
 
 
+    }
+
+    ngAfterViewChecked(){
+        if(this._appServices.config){
+            this.showRatingsAndComments = this._appServices.config.commentsAndRatings;
+        }
     }
 
     public rate() {

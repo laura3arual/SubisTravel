@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import "jquery";
 import "jquery-ui";
 import {GalleryServices} from "../../gallery/gallery.services";

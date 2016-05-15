@@ -1,5 +1,5 @@
 import {ProvidersGalleryComponent} from "../providersGallery/providersGallery.component";
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {ProviderFiltersComponent} from "../providersFilters/providerFilters.component";
 
 @Component({

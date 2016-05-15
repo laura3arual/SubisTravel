@@ -6,6 +6,7 @@ class Item {
     idClasificacion: number;
     idEntidad: number;
     idTipo: number;
+    imagen: string;
 };
 
 enum Estado {

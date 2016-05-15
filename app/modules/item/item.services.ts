@@ -1,9 +1,10 @@
-import {Injectable} from "angular2/core";
-import {EventEmitter} from "angular2/core";
+import {Injectable} from "@angular/core";
+import {EventEmitter} from "@angular/core";
 import {DataServices} from "../core/services/data.services";
 import {Config} from "../core/config";
 import {Item, RatingPost, Rate, QuestionPost, Question} from "./item.models";
 import {Observable} from "rxjs/Observable";
+import {Package} from "../newPackage/newPackage.models";
 
 @Injectable()
 
@@ -14,6 +15,7 @@ export class ItemServices {
     private apiUrlQuestions: string;
     private apiUrlAnswers: string;
     private apiUrlAddQuestion: string;
+    private apiUrlGetPackage: string;
 
     constructor(private _dataServices: DataServices) {
         this.apiUrlItems = "items/";
@@ -21,6 +23,7 @@ export class ItemServices {
         this.apiUrlQuestions = "preguntas/items/";
         this.apiUrlAnswers = "preguntas/respuestas/";
         this.apiUrlAddQuestion = "preguntas/registrar";
+        this.apiUrlGetPackage = "paquetes/items/";
     }
 
     public getItem(id: number): Observable<Item> {
@@ -48,6 +51,11 @@ export class ItemServices {
 
     public canComment(itemId: number, userId: number): Promise<boolean> {
         return this._dataServices.getData(Config.baseUrl + "items/" + itemId + "/permiteCalificarItem/" + userId).toPromise();
+    }
+
+
+    public getPackage(packageId: number): Observable<Package>{
+        return this._dataServices.getData(Config.baseUrl + this.apiUrlGetPackage + packageId)
     }
 }
 

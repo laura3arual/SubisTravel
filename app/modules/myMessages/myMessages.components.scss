@@ -1,0 +1,11 @@
+@import "./../../assets/styles/subis.travel/variables";
+.my-messages {
+  ul.tabs {
+    border: none;
+    .tab {
+      a {
+        cursor: pointer;
+      }
+    }
+  }
+}

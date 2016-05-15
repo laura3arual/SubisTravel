@@ -1,10 +1,10 @@
-import {Component} from "angular2/core";
-import {OnInit} from "angular2/core";
+import {Component} from "@angular/core";
+import {OnInit} from "@angular/core";
 import {OrderBy} from "../core/pipes/orderBy.pipe";
 import {AppServices} from "../app/app.services";
 import {ItemServices} from "../item/item.services";
 import {Item} from "../item/item.models";
-import {ROUTER_DIRECTIVES, Router} from "angular2/router";
+import {ROUTER_DIRECTIVES, Router} from "@angular/router-deprecated";
 import {Transaction} from "./mySales.models";
 import {MySalesServices} from "./mySales.services";
 import {UserQuery} from "../core/models/User";
@@ -17,7 +17,7 @@ import {UserQuery} from "../core/models/User";
     directives: [ROUTER_DIRECTIVES]
 })
 
-export class MySalesPurchasesComponent implements OnInit{
+export class MySalesComponent{
    public transactions: Array<Transaction>;
 
     constructor(private _mySalesServices: MySalesServices,
@@ -32,14 +32,11 @@ export class MySalesPurchasesComponent implements OnInit{
         }
     }
 
-    ngOnInit():any {
-       }
-
     private loadMySales() {
         this._mySalesServices.getMySales(this._appServices.user.internalEntityId).then((transactions: Array<Transaction>) => {
             this.transactions =  transactions;
             _.each(this.transactions, (transaction: Transaction) => {
-
+                transaction.fecha = moment(transaction.fecha).format('MMMM Do YYYY, h:mm:ss a');
                 this._itemServices.getItem(transaction.idItem).toPromise().then((item: Item) => {
                     transaction.item =  item;
                 });

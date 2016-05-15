@@ -1,5 +1,5 @@
-import {Component} from "angular2/core";
-import {CanActivate} from "angular2/router";
+import {Component} from "@angular/core";
+import {CanActivate} from "@angular/router-deprecated";
 import {tokenNotExpired} from "angular2-jwt";
 import {User} from "../core/models/User";
 import {AppServices} from "../app/app.services";
@@ -15,7 +15,7 @@ import {Unsuscribe} from "./unsuscribe.models";
 
 @CanActivate(() => tokenNotExpired())
 
-export class UnsuscribeComponent{
+export class UnsuscribeComponent{ 
     unsuscribeList: Array<Unsuscribe>;
 
     constructor(private _unsuscribeServices: UnsuscribeServices, private _appServices: AppServices){

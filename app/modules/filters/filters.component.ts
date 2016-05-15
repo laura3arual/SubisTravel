@@ -1,5 +1,5 @@
-import {Component} from "angular2/core";
-import {ControlGroup, FormBuilder} from "angular2/common";
+import {Component} from "@angular/core";
+import {ControlGroup, FormBuilder} from "@angular/common";
 import {GalleryServices} from "../gallery/gallery.services";
 import {ProvidersComponent} from "./providers/providers.component";
 import {RangeComponent} from "./range/range.component";

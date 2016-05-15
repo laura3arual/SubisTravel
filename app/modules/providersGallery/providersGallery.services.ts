@@ -1,5 +1,5 @@
-import {Injectable} from "angular2/core";
-import {EventEmitter} from "angular2/core";
+import {Injectable} from "@angular/core";
+import {EventEmitter} from "@angular/core";
 import {DataServices} from "../core/services/data.services";
 import {Config} from "../core/config";
 import {ProviderListResponse, Provider} from "./providersGallery.models";
@@ -17,8 +17,8 @@ export class ProvidersGalleryServices{
     constructor(private _dataServices: DataServices) {
         this.providerList = [];
         this.filter = <IFilter>{};
-        this.updateProviders = new EventEmitter();
-        this.updatePagination = new EventEmitter();
+        this.updateProviders = new EventEmitter<Array<Provider>>();
+        this.updatePagination = new EventEmitter<number>();
     }
 
     public getProviders():void {

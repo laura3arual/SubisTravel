@@ -6,7 +6,7 @@
   "bundle": "typings/tsd.d.ts",
   "installed": {
     "toastr/toastr.d.ts": {
-      "commit": "7a3d6944036902996b87981e6150900952b35628"
+      "commit": "e8f8e7471b8ca92ca417f8c878f64ae4d1067972"
     },
     "jquery/jquery.d.ts": {
       "commit": "6766ed1d0faf02ede9e2edf2e66bbb2388c825ec"

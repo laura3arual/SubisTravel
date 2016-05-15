@@ -1,0 +1,65 @@
+<div class="view-container send-messages">
+    <h1 class="center">Enviar Mensaje</h1>
+    <div class="container message">
+        <div class="input-field">
+            <div class="row">
+                <p class="col s4 ">
+                    <input id="manager" #manager name="userType" type="radio" value="manager" (click)="userType = manager.value" [ngModel]="userType === 'manager'"/>
+                    <label for="manager">Administradores</label>
+                </p>
+                <p class="col s4 ">
+                    <input id="provider" #provider name="userType" type="radio" value="provider" (click)="userType = provider.value" [ngModel]="userType === 'provider'"/>
+                    <label for="provider">Proveedores</label>
+                </p>
+                <p class="col s4 ">
+                    <input id="client" #client name="userType" type="radio" value="client" (click)="userType = client.value" [ngModel]="userType === 'client'"/>
+                    <label for="client">Clientes</label>
+                </p>
+            </div>
+            <div class="col s12 m6 userTarget" *ngIf="userType === 'manager'">
+                <p>Administradores</p>
+                <div class="options-container">
+                    <p *ngFor="let manager of managers | async" class="">
+                        <input name="userTarget" type="radio" id="{{manager.idUsuario}}" [value]="manager.idUsuario" (change)="currentMessage.idUsuarioDestino = manager.idUsuario"/>
+                        <label attr.for="{{manager.idUsuario}}">{{manager.nombre}}</label>
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m6 userTarget" *ngIf="userType === 'provider'">
+                <p>Proveedores</p>
+                <div class="options-container">
+                    <p *ngFor="let provider of providers | async" class="">
+                        <input name="userTarget" type="radio" id="{{provider.idUsuario}}" [value]="provider.idUsuario" (change)="currentMessage.idUsuarioDestino = provider.idUsuario"/>
+                        <label attr.for="{{provider.idUsuario}}">{{provider.nombre}}</label>
+                    </p>
+                </div>
+            </div>
+            <div class="col s12 m6 userTarget" *ngIf="userType === 'client'">
+                <p>Clientes</p>
+                <div class="options-container">
+                    <p *ngFor="let client of clients | async" class="">
+                        <input name="userTarget" type="radio" id="{{client.idUsuario}}" [value]="client.idUsuario" (change)="currentMessage.idUsuarioDestino = client.idUsuario"/>
+                        <label attr.for="{{client.idUsuario}}">{{client.nombre}}</label>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="input_text" type="text" length="10" [(ngModel)]="currentMessage.asunto">
+                <label for="input_text">Asunto</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="textarea1" class="materialize-textarea" length="120" [(ngModel)]="currentMessage.mensaje"></textarea>
+                <label for="textarea1">Mensaje</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <a class="waves-effect waves-light btn" (click)="sendMessage()">enviar!</a>
+            </div>
+        </div>
+    </div>
+</div>

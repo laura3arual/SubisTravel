@@ -1,4 +1,5 @@
-<div class="container new-provider row">
+<div class="container new-provider row view-container">
+    <h4>Nuevo Proveedor</h4>
     <form class="col s12">
         <div class="row">
             <div class="input-field col s6">
@@ -9,8 +10,30 @@
                 <input id="description" type="text" class="validate" [(ngModel)]="currentProvider.email" required>
                 <label for="description">Correo Electrónico</label>
             </div>
+            <div class="input-field col s6">
+                <input id="identificacion" type="text" class="validate" [(ngModel)]="currentProvider.identificacion" required>
+                <label for="identificacion">Identificación</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="direccion" type="text" class="validate" [(ngModel)]="currentProvider.direccion" required>
+                <label for="direccion">Dirección</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="password" type="password" class="validate" [(ngModel)]="currentProvider.password" required>
+                <label for="password">Contraseña</label>
+            </div>
+            <div class="input-field col s6">
+                <h6>Category</h6>
+                <select class="form-control browser-default" [(ngModel)]="currentProvider.idTipo" (ngModelChange)="setCategory($event)">
+                    <option *ngFor="#category of categories | async" [value]="category.id">{{category.nombre}}</option>
+                </select>
+            </div> 
+            <label for="file-input">
+                Imagen Principal
+                <img class="provider-image" [src]="currentProvider.imagenPrincipal || defaultImage" alt="">
+            </label>
+            <input id="file-input" class="provider-image-input" type="file" multiple  #input (change)="imageChange(input)" >
         </div>
         <a class="waves-effect waves-light btn" (click)="create()">Guardar</a>
     </form>
-
 </div>

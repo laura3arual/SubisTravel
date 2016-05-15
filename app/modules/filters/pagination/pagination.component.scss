@@ -3,6 +3,11 @@
   float: right;
   ul {
     width: auto;
+    li{
+      i.fa{
+        cursor: pointer;
+      }
+    }
   }
 }
 

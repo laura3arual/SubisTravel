@@ -1,5 +1,5 @@
-import {Component} from "angular2/core";
-import {OnInit} from "angular2/core";
+import {Component} from "@angular/core";
+import {OnInit} from "@angular/core";
 import {OrderBy} from "../core/pipes/orderBy.pipe";
 import {Transaction} from "./transactions.models";
 import {TransactionsServices} from "./transactions.services";
@@ -7,7 +7,7 @@ import {AppServices} from "../app/app.services";
 import {UserQuery} from "../core/models/User";
 import {ItemServices} from "../item/item.services";
 import {Item} from "../item/item.models";
-import {ROUTER_DIRECTIVES, Router} from "angular2/router";
+import {ROUTER_DIRECTIVES, Router} from "@angular/router-deprecated";
 
 @Component({
     template: require("./transactions.component.html"),
@@ -39,6 +39,7 @@ export class TransactionsComponent implements OnInit{
         this._transactionsServices.getAllTransactions().then((transactions: Array<Transaction>) => {
             this.transactions =  transactions;
             _.each(this.transactions, (transaction: Transaction) => {
+                transaction.fecha = moment(transaction.fecha).format('MMMM Do YYYY, h:mm:ss a');
                 this._appServices.getUserById(transaction.idUsuario).then((user: UserQuery) => {
                     transaction.user =  user;
                 });

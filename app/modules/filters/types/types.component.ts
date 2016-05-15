@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {GalleryServices} from "../../gallery/gallery.services";
 import {ItemType} from "../../gallery/gallery.models";
 

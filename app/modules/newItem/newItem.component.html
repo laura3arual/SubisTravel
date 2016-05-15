@@ -14,10 +14,6 @@
                 <label for="descriptionCantidad">Descripción Cantidad</label>
             </div>
             <div class="input-field col s12 m6">
-                <input id="disabled" type="text" class="validate" [(ngModel)]="currentItem.imagen" required>
-                <label for="disabled">Imagen</label>
-            </div>
-            <div class="input-field col s12 m6">
                 <input id="value" type="number" class="validate" [(ngModel)]="currentItem.valor" required>
                 <label for="value">Valor</label>
             </div>
@@ -34,6 +30,35 @@
                     <input name="categories" type="radio" id="{{category.id}}" [value]="category.id" (change)="setClasificationId($event.target.value)"/>
                     <label attr.for="{{category.id}}">{{category.nombre}}</label>
                 </p>
+            </div>
+
+            <sebm-google-map
+                    [latitude]="position.coords.latitude"
+                    [longitude]="position.coords.longitude"
+                    [zoom]="18"
+                    [disableDefaultUI]="false"
+                    [zoomControl]="false"
+                    (mapClick)="selectPlace($event)">
+                <sebm-google-map-marker
+                        (markerClick)="clickedMarker(m.label, i)"
+                        [latitude]="marker.lat"
+                        [longitude]="marker.lng"
+                        [label]="marker.label"
+                        [markerDraggable]="marker.draggable"
+                        (dragEnd)="markerDragEnd(marker, $event)">
+
+                    <sebm-google-map-info-window>
+                        <strong>InfoWindow content</strong>
+                    </sebm-google-map-info-window>
+
+                </sebm-google-map-marker>
+
+            </sebm-google-map>
+
+            <div class="input-field col s12 m6">
+                <label for="disabled">Imagen</label>
+                <input id="disabled" type="file" multiple class="validate" #input (change)="imageChange(input)" required>
+                <img [src]="currentItem.imagen" alt="">
             </div>
 
         </div>

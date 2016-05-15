@@ -17,6 +17,7 @@ module.exports = {
             "_": "underscore",
             '$': "jquery",
             $: "jquery",
+            moment: "moment",
             jQuery: "jquery",
             "window.jQuery": "jquery",
             "root.jQuery": "jquery"

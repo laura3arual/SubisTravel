@@ -1,5 +1,5 @@
 
-<div class="col s12">
+<div class="col s12 filters-providers">
     <ul class="collection">
         <li class="collection-item row valign-wrapper" *ngFor="#provider of providerList">
             <img [routerLink]="['/Provider', {id: provider.id}]" src="{{provider.imagenPrincipal}}" class="responsive-img col s2 provider-image">

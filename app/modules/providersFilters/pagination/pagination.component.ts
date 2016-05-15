@@ -1,5 +1,5 @@
-import {Component} from "angular2/core";
-import {OnInit} from "angular2/core";
+import {Component} from "@angular/core";
+import {OnInit} from "@angular/core";
 import {ProvidersGalleryServices} from "../../providersGallery/providersGallery.services";
 @Component({
     selector: "pagination",
