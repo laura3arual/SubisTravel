@@ -1,4 +1,4 @@
-import {Component} from "angular2/core";
+import {Component} from "@angular/core";
 import {CategoryServices} from "./categories.services";
 import {Category} from "./categories.models";
 import {ProvidersGalleryServices} from "../../providersGallery/providersGallery.services";

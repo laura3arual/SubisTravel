@@ -24,6 +24,7 @@ export class NewItemComponent implements OnInit{
     private itemTypes: Array<ItemType>;
     public position: Position;
     public marker: Marker;
+    public currentQRItem: QRItem;
 
     constructor(private _newItemServices: NewItemServices,
                 private _appServices: AppServices,
@@ -62,6 +63,7 @@ export class NewItemComponent implements OnInit{
     public create() {
         this._newItemServices.createItem(this.currentItem);
         this._router.navigate( ['Home'] );
+        this._newItemServices.registerQR(this.currentQRItem);
     }
     public setIdType(value: string) {
         this.currentItem.idTipo = Number(value);
@@ -81,11 +83,9 @@ export class NewItemComponent implements OnInit{
         }
     }
     public  selectPlace (event: MouseEvent) {
-        let qrItem = new QRItem();
-        qrItem.latitude = event.coords.lat;
-        qrItem.longitude = event.coords.lng;
+        this.currentQRItem.latitude = event.coords.lat;
+        this.currentQRItem.longitude = event.coords.lng;
         this.marker = new Marker(event.coords.lat, event.coords.lng, "lugar", true);
-        this._newItemServices.registerQR(qrItem);
     }
 }
 
