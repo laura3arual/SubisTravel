@@ -18,7 +18,7 @@ import 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 
-import "materialize-css";
+import "materialize-css/dist/js/materialize.min.js";
 import "wNumb";
 import "toastr";
 // import "./../../node_modules/ng2-toastr/bundles/ng2-toastr.js";

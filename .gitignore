@@ -1,3 +1,4 @@
 node_modules/
-wwwroot/
+wwwroot
 npm-debug.log
+typings
