@@ -40,7 +40,6 @@
                     [zoomControl]="false"
                     (mapClick)="selectPlace($event)">
                 <sebm-google-map-marker
-                        (markerClick)="clickedMarker(m.label, i)"
                         [latitude]="marker.lat"
                         [longitude]="marker.lng"
                         [label]="marker.label"
