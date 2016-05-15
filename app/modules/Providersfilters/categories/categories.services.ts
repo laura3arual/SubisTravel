@@ -1,5 +1,5 @@
-import {Injectable} from "angular2/core";
-import {EventEmitter} from "angular2/core";
+import {Injectable} from "@angular/core";
+import {EventEmitter} from "@angular/core";
 import {Category} from "./categories.models";
 import {DataServices} from "../../core/services/data.services";
 import {Config} from "../../core/config";
@@ -15,7 +15,7 @@ export class CategoryServices {
     constructor(private _dataServices: DataServices) {
         this.apiUrl = "clasificaciones"; 
         this.categoryList = [];
-        this.updateCategories = new EventEmitter();
+        this.updateCategories = new EventEmitter<Array<Category>>();
     }
 
     public getCategories():void {
