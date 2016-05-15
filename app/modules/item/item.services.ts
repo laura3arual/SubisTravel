@@ -27,7 +27,9 @@ export class ItemServices {
     }
 
     public getItem(id: number): Observable<Item> {
-        return this._dataServices.getData(Config.baseUrl + this.apiUrlItems + id);
+        return this._dataServices.getData(Config.baseUrl + this.apiUrlItems + id).map((itemWrapper: any)=>{
+            return itemWrapper.item;
+        });
     }
 
     public rate(id: number, rating: RatingPost): Promise<any> {
