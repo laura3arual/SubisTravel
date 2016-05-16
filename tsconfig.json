@@ -8,7 +8,11 @@
     "sourceMap": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "removeComments": false,
+    "emitDecoratorMetadata": true,
+    "noEmitOnError": true
   },
   "files": [
     "app/contracts/build.d.ts",
@@ -22,5 +26,5 @@
     "./test/**/*.ts",
     "!./node_modules/**/*.ts",
     "typings/main.d.ts"
-    ]
-  }
+  ]
+}

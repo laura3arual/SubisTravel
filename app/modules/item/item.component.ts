@@ -11,12 +11,13 @@ import {ShoppingCartServices} from "../shoppingCart/shoppingCart.services";
 import {ShoppingCartItemPost} from "../shoppingCart/shoppingCart.models";
 import {Package} from "../newPackage/newPackage.models";
 import {NewPackageServices} from "../newPackage/newPackage.services";
+import {ShareComponent} from '../share/share.component';
 
 @Component({
     template: require("./item.component.html"),
     styles: [require("./item.components.scss").toString()],
     pipes: [OrderBy],
-    directives: [ROUTER_DIRECTIVES],
+    directives: [ROUTER_DIRECTIVES, ShareComponent],
     providers: []
 })
 
@@ -31,6 +32,7 @@ export class ItemComponent implements OnInit{
     private users: Array<UserQuery>;
     private package: Package;
     private userRole: number;
+    public currentUrl: string;
 
     constructor(private _itemServices: ItemServices,
                 private _routeParams: RouteParams,
@@ -71,6 +73,8 @@ export class ItemComponent implements OnInit{
                 });
             }
         });
+        
+       this.currentUrl = window.location.href;
     }
 
     ngAfterViewChecked(){
@@ -173,6 +177,8 @@ export class ItemComponent implements OnInit{
     public loggedIn() {
         return this._appServices.loggedIn();
     }
+    
+    
 }
 
 

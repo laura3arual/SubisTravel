@@ -11,7 +11,11 @@
             </div>
         </div>
     </div>
-    <img src="{{item.imagen}}" alt="">
+    <div class="section row image-section">        
+        <img src="{{item.imagen}}" alt="">
+        
+        <social-share [image]="item.imagen" [link]="currentUrl" [title]="item.nombre" [description]="item.descripcion"></social-share>
+    </div>
     <div class="section row" *ngIf="userRole===3">
         <div class="input-field col s12 m2 offset-m9">
             <input id="quantity" type="text" class="validate" [(ngModel)]="quantity">

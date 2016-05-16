@@ -1,0 +1,22 @@
+@import "./../../assets/styles/subis.travel/variables";
+
+.share-nav {
+ ul.buttons {
+     margin: auto;
+     li {
+         display: inline-block;
+         background-color: rgba(255, 255, 255, 0.66);
+         padding: 4px 6px;
+         border-radius: 10px;
+         margin-right: 7px;
+         &:hover {
+             cursor: pointer;
+             background-color: rgba(255, 255, 255, 0.9);
+             transition: background-color 0.3s ease-in; 
+         }
+     }
+     a { 
+         font-size: 30px;
+     }
+ } 
+}
