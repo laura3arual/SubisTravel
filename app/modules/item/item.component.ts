@@ -29,6 +29,7 @@ export class ItemComponent implements OnInit{
     private questions: Array<Question>;
     private canComment: boolean;
     private showRatingsAndComments: boolean;
+    private showNetworkShare: boolean;
     private users: Array<UserQuery>;
     private package: Package;
     private userRole: number;
@@ -80,6 +81,11 @@ export class ItemComponent implements OnInit{
     ngAfterViewChecked(){
         if(this._appServices.config && this.showRatingsAndComments != undefined){
             this.showRatingsAndComments = this._appServices.config.commentsAndRatings;
+        }
+        
+        
+        if(this._appServices.config && this.showNetworkShare != undefined){
+            this.showNetworkShare = this._appServices.config.showNetworkShare;
         }
     }
 
