@@ -9,21 +9,38 @@
             </ul>
         </div>
         <div id="test1" class="col s12" *ngIf="currentTab === 'searches'">
-            <ul class="collection">
-                <li class="collection-item" *ngFor="let report of searches | async">
-                    <p><b>Item:</b><span>{{report.nombreItem}}</span></p>
-                    <p><b>Cantidad:</b><span>{{report.cantidad}}</span></p>
-                    <p><b>Palabras Buscadas:</b>{{report.palabrasBuscadas}}</p>
-                </li>
-            </ul>
+            <table>
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Cantidad</th>
+                    <th>Palabras Buscadas</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let report of searches | async">
+                    <td>{{report.nombreItem}}</td>
+                    <td>{{report.cantidad}}</td>
+                    <td>{{report.palabrasBuscadas}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
         <div id="test2" class="col s12" *ngIf="currentTab === 'queries'">
-            <ul class="collection">
-                <li class="collection-item" *ngFor="let report of searches | async">
-                    <p><b>Item:</b><span>{{report.nombreItem}}</span></p>
-                    <p><b>Cantidad:</b><span>{{report.cantidad}}</span></p>
-                </li>
-            </ul>
+            <table>
+                <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Cantidad</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let report of queries | async">
+                    <td>{{report.nombreItem}}</td>
+                    <td>{{report.cantidad}}</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

@@ -21,7 +21,7 @@
                     <li *ngIf="loggedIn() && (getCurrentRole() && getCurrentRole() === 3)"><a [routerLink]="['/ShoppingCart']"><i class="fa fa-shopping-cart"></i>Carro de compras <span class="badge" *ngIf="nItems">{{nItems}}</span> </a></li>
                     <li *ngIf="loggedIn() && (getCurrentRole() && getCurrentRole() === 5)"><a [routerLink]="['/Transactions']"><i class="fa fa-bar-chart"></i>Transacciones</a></li>
                     <li *ngIf="loggedIn() && (getCurrentRole() && getCurrentRole() === 5)"><a [routerLink]="['/Unsuscribe']"><i class="fa fa-thumbs-down"></i>Solicitudes de baja</a></li>
-                    <li *ngIf="loggedIn() && showReports && (getCurrentRole() && getCurrentRole() === 4)"><a [routerLink]="['/Reports']"><i class="fa fa-bar-chart"></i>Reports</a></li>
+                    <li *ngIf="loggedIn() && showReports && (getCurrentRole() && getCurrentRole() === 4)"><a [routerLink]="['/Reports']"><i class="fa fa-bar-chart"></i>Reportes</a></li>
                     <li><a href="#" *ngIf="!loggedIn()" (click)="login()"><i class="fa fa-sign-in"></i>Ingresar</a></li>
 
                     <li><a href="#!" class="dropdown-button" data-activates="user-menu">
