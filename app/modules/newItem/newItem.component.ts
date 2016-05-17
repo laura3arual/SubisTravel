@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 import {OnInit} from "@angular/core";
 import {NewItemServices} from "./newItem.services";
-import {ItemPost, QRItem} from "./newItem.models";
+import {ItemPost, QRItem, ItemResponse} from "./newItem.models";
 import {ItemType} from "../gallery/gallery.models";
 import {AppServices} from "../app/app.services";
 import {Category} from "../providersFilters/categories/categories.models";
@@ -9,6 +9,7 @@ import {Router} from "@angular/router-deprecated";
 import {ANGULAR2_GOOGLE_MAPS_DIRECTIVES, MouseEvent} from "angular2-google-maps/core";
 import {GeolocationServices} from "../core/services/geolocation.services";
 import {Position, Marker} from "../core/models/Position";
+import {Observable} from "rxjs/Observable";
 
 
 @Component({
@@ -62,9 +63,13 @@ export class NewItemComponent implements OnInit{
     }
 
     public create() {
-        this._newItemServices.createItem(this.currentItem);
-        this._router.navigate( ['Home'] );
-        this._newItemServices.registerQR(this.currentQRItem);
+        this._newItemServices.createItem(this.currentItem).then((itemResponse: ItemResponse) => {
+            this.currentQRItem.id_app_item = itemResponse.id;
+            this.currentQRItem.url_item = "http://" + location.hostname + "/#/item/" + itemResponse.id;
+            this._newItemServices.registerQR(this.currentQRItem);
+            this._router.navigate( ['Home'] );
+        });
+       
     }
     public setIdType(value: string) {
         this.currentItem.idTipo = Number(value);

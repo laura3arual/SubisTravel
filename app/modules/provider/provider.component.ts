@@ -34,7 +34,7 @@ export class ProviderComponent implements OnInit{
     private getProvider() {
         let providerId = Number(this._routeParams.get("id"));
         this._providerServices.getProvider(providerId).subscribe((provider: any) => {
-            this.provider = provider.entidad;
+            this.provider = provider;
             this.provider.estado = provider.estado?provider.estado:null;
             this.provider.identificacion = provider.identificacion?provider.identificacion:null;
             this.loadCategories();

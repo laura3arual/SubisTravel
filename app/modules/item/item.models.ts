@@ -50,4 +50,20 @@ class Question {
     answers: Array<Question>;
 }
 
-export { Item,  RatingPost, Rate, QuestionPost, Question};
+class QrResponseObjectData {
+    id_item: number;
+    url_item: string;
+    id_type: number;
+    latitude: number;
+    longitude: number;
+    id_client: number;
+    url_image_qr: string;
+    id_app_item: number;
+}
+
+class QrResponse {
+    message: string;
+    "objectData": QrResponseObjectData;
+}
+
+export { Item,  RatingPost, Rate, QuestionPost, Question, QrResponse};

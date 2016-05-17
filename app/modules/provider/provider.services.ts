@@ -20,7 +20,13 @@ export class ProviderServices {
     }
 
     public getProvider(id: number): Observable<Provider> {
-        return this._dataServices.getData(Config.baseUrl + this.apiUrlGetProvider + id);
+        return this._dataServices.getData(Config.baseUrl + this.apiUrlGetProvider + id).map((providerWrraper: any)=>{
+            if(providerWrraper.entidad){
+                return providerWrraper.entidad;
+            } else {
+                providerWrraper;
+            }
+        });
     }
 
     public updateProvider(provider: Provider) {

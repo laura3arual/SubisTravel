@@ -1,7 +1,7 @@
 <div class="container item-detail">
     <div class="valign-wrapper principal-title">
         <h1 class="valign">{{item.nombre}}</h1>
-        <div class="item-detail-rating valign">
+        <div class="item-detail-rating valign" *ngIf="item.promedioCalificacion">
             <div>
                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 0}"></i>
                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 1}"></i>
@@ -13,8 +13,7 @@
     </div>
     <div class="section row image-section">        
         <img src="{{item.imagen}}" alt="">
-        
-        <social-share [image]="item.imagen" [link]="currentUrl" [title]="item.nombre" [description]="item.descripcion"></social-share>
+        <social-share *ngIf="showNetworkShare" [image]="item.imagen" [link]="currentUrl" [title]="item.nombre" [description]="item.descripcion"></social-share>
     </div>
     <div class="section row" *ngIf="userRole===3">
         <div class="input-field col s12 m2 offset-m9">
@@ -27,6 +26,9 @@
         <li>
             <div class="collapsible-header"><i class="fa fa-info"></i>Detalles</div>
             <div class="collapsible-body details">
+                <a  *ngIf="showQR" [href]="currentQRCode" target="_blank">
+                    <img class="qr-code"[src]="currentQRCode" alt="">
+                </a>
                 <p class="unselectable"><span>Descripción: </span>{{item.descripcion}}</p>
                 <p class="unselectable"><span>Valor: </span>${{item.valor}}</p>
                 <div *ngIf="package && package.idItemPaquete">
@@ -37,9 +39,7 @@
                             <span class="title col s9 valign">{{item.nombre}}</span>
                         </li>
                     </ul>
-
                 </div>
-
             </div>
         </li>
         <li *ngIf="showRatingsAndComments">

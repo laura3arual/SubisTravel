@@ -1,8 +1,9 @@
 import {Injectable} from "@angular/core";
+import {Http, Response} from "@angular/http";
 import {EventEmitter} from "@angular/core";
 import {DataServices} from "../core/services/data.services";
 import {Config} from "../core/config";
-import {Item, RatingPost, Rate, QuestionPost, Question} from "./item.models";
+import {Item, RatingPost, Rate, QuestionPost, Question, QrResponse} from "./item.models";
 import {Observable} from "rxjs/Observable";
 import {Package} from "../newPackage/newPackage.models";
 
@@ -16,19 +17,25 @@ export class ItemServices {
     private apiUrlAnswers: string;
     private apiUrlAddQuestion: string;
     private apiUrlGetPackage: string;
+    private apiUrlGetQR: string;
 
-    constructor(private _dataServices: DataServices) {
+    constructor(private _dataServices: DataServices, private _http: Http) {
         this.apiUrlItems = "items/";
         this.apiUrlRating = "calificaciones/items/";
         this.apiUrlQuestions = "preguntas/items/";
         this.apiUrlAnswers = "preguntas/respuestas/";
         this.apiUrlAddQuestion = "preguntas/registrar";
         this.apiUrlGetPackage = "paquetes/items/";
+        this.apiUrlGetQR = "http://subisqr.wwhanvbxmn.us-west-2.elasticbeanstalk.com/subis/item/";
     }
 
     public getItem(id: number): Observable<Item> {
         return this._dataServices.getData(Config.baseUrl + this.apiUrlItems + id).map((itemWrapper: any)=>{
-            return itemWrapper.item;
+            if(itemWrapper.item){
+                return itemWrapper.item;
+            } else {
+                return itemWrapper;
+            }
         });
     }
 
@@ -55,9 +62,12 @@ export class ItemServices {
         return this._dataServices.getData(Config.baseUrl + "items/" + itemId + "/permiteCalificarItem/" + userId).toPromise();
     }
 
-
     public getPackage(packageId: number): Observable<Package>{
         return this._dataServices.getData(Config.baseUrl + this.apiUrlGetPackage + packageId)
+    }
+
+    public getQr(packageId: number): Observable<QrResponse>{
+        return this._http.get(this.apiUrlGetQR + packageId).map((response:Response) => {return response.json();});
     }
 }
 

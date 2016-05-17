@@ -26,7 +26,7 @@ class QRItem {
     id_type: string;
     latitude: number;
     longitude: number;
-    id_app_item: string;
+    id_app_item: number;
 }
 
 export { ItemPost, ItemResponse, QRItem };

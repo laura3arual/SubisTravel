@@ -8,6 +8,12 @@
   padding: 20px 20px 20px 20px;
   max-width:900px!important;
 
+  .qr-code {
+    height: 150px;
+    width: 150px;
+    float: right;
+    cursor: pointer;
+  }
   h1 {
     font-size: 1.4705882352941178em;
     color: $st-main-color;
