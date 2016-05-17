@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers, RequestOptions, URLSearchParams} from "@angular/http";
 import {EventEmitter} from "@angular/core";
 import {DataServices} from "../core/services/data.services";
 import {Config} from "../core/config";
@@ -67,7 +67,24 @@ export class ItemServices {
     }
 
     public getQr(packageId: number): Observable<QrResponse>{
-        return this._http.get(this.apiUrlGetQR + packageId).map((response:Response) => {return response.json();});
+        // let headers = new Headers({
+        //     'content-type': 'application/json',
+        //     'client_id': 'n8XKjM_z6OozP__BHrSd8Qr9sH4y5LcGSOdC7uNpdtRXJbsUmP'
+        // });
+
+        let headers = new Headers();
+        // headers.append("Authorization", "Bearer ");
+        // headers.append('Content-Type', 'application/json');
+        headers.append('client_id', 'n8XKjM_z6OozP__BHrSd8Qr9sH4y5LcGSOdC7uNpdtRXJbsUmP');
+        // headers.append('cache-control', 'no-cache');
+ 
+        let search = new  URLSearchParams();
+        // search.set( 'content-type', 'application/json');
+        // search.set( 'client_id', 'n8XKjM_z6OozP__BHrSd8Qr9sH4y5LcGSOdC7uNpdtRXJbsUmP');
+        let options = new RequestOptions({ headers: headers});
+        return this._http.get(this.apiUrlGetQR + packageId, options).map((response:Response) => {
+            console.log(response);
+            return response.json();});
     }
 }
 

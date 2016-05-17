@@ -12,6 +12,7 @@ export class DataServices {
 
     constructor(private _http: Http) {
         this._options.headers = new Headers();
+        this._options.headers.append("aaaaaa", "Bearer ");
         this._options.headers.append("Authorization", "Bearer ");
         this._options.headers.append("Content-Type", "application/json; charset=utf-8");
     }

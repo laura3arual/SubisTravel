@@ -66,12 +66,17 @@ export class ItemComponent implements OnInit{
         let itemId = Number(this._routeParams.get("id"));
         this._itemServices.getItem(itemId).subscribe((item: any) => {
             this.item = item; 
-            this.getRatings();
-            this.getQuestions();
-            this.currentQuestion.idItem = item.id;
-            this._itemServices.canComment(this.item.id, this._appServices.user.internalUserId).then((response: boolean) => {
-                this.canComment = response;
-            });
+            if(this._appServices.config.commentsAndRatings) {
+                this.getRatings();
+                this.getQuestions();
+                this.currentQuestion.idItem = item.id;
+                if(this._appServices.loggedIn()) {
+                    this._itemServices.canComment(this.item.id, this._appServices.user.internalUserId).then((response: boolean) => {
+                        this.canComment = response;
+                    });
+                }
+            }
+
             if(this.item.idTipo === 13) {
                 this._itemServices.getPackage(this.item.id).subscribe((pack: Package) => {
                     this.package = pack;

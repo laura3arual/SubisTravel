@@ -2,7 +2,7 @@
     <div class="valign-wrapper principal-title">
         <h1 class="valign">{{item.nombre}}</h1>
         <div class="item-detail-rating valign" *ngIf="item.promedioCalificacion">
-            <div>
+            <div *ngIf="showRatingsAndComments && ratings">
                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 0}"></i>
                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 1}"></i>
                 <i class="fa fa-star" [ngClass]="{'selected': item.promedioCalificacion > 2}"></i>
@@ -42,7 +42,7 @@
                 </div>
             </div>
         </li>
-        <li *ngIf="showRatingsAndComments">
+        <li *ngIf="showRatingsAndComments && ratings">
             <div class="collapsible-header"><i class="fa fa-smile-o"></i>Calificationes y Comentarios</div>
             <div class="collapsible-body  ratings">
                 <div class="section rate row">
@@ -93,7 +93,7 @@
             </div>
         </li>
 
-        <li>
+        <li *ngIf="showRatingsAndComments && questions">
             <div class="collapsible-header"><i class="fa fa-question"></i>Preguntas</div>
             <div class="collapsible-body questions">
                 <div class="card-panel grey lighten-5 z-depth-1 row" [hidden]="!loggedIn()">
